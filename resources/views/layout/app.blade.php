@@ -22,113 +22,98 @@
     <!-- Custom CSS -->
     <style>
     body {
-        padding-top: 80px; /* Adjust based on your top bar height */
-        background-color: #e9ecef;
+    padding-top: 80px; /* Adjust based on your top bar height */
+    background-color: #e9ecef;
+    width: 100%; /* Full width */
+    margin: 0; /* Corrected colon to semicolon */
+}
+
+.navbar-dark {
+    background-color: #FFFFFF; /* Adjust color if needed */
+}
+
+#embase-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Align items to the left */
+    width: 100%;
+    padding: 20px; /* Adjust padding as needed */
+    color: white; /* Text color */
+    text-align: center;
+}
+
+#embase-header .navbar-brand {
+    margin-right: 20px; /* Adjust spacing between items if needed */
+    color: #343a40;
+}
+
+/* Making text responsive and smaller */
+#embase-header .navbar-brand-menu-1,
+#embase-header .navbar-brand-menu-2,
+#embase-header .navbar-brand-menu-3,
+#embase-header .navbar-brand-menu-4,
+#embase-header .navbar-brand-menu-5 {
+    margin: 0 10px; /* Adjust spacing between items if needed */
+    color: #343a40;
+    font-family: 'Sofia', sans-serif;
+    font-size: 1rem; /* Set base size */
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Responsive text size adjustment */
+@media (max-width: 768px) {
+    #embase-header .navbar-brand-menu-1,
+    #embase-header .navbar-brand-menu-2,
+    #embase-header .navbar-brand-menu-3,
+    #embase-header .navbar-brand-menu-4,
+    #embase-header .navbar-brand-menu-5 {
+        font-size: 0.9rem; /* Smaller size for smaller screens */
     }
+}
 
-    .navbar-dark {
-            background-color:#FFFFFF; /* Adjust color if needed */
-        }
-
-        #embase-header {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; /* Align items to the left */
-            width: 100%;
-        }
-
-        #embase-header .navbar-brand {
-            margin-right: 20px; /* Adjust spacing between items if needed */
-            color: #343a40 
-            
-        }
-
-        #embase-header .navbar-brand-menu-1 {
-            margin-left: 620px;
-            margin-right: 20px; /* Adjust spacing between items if needed */
-            color:  #343a40 ;
-            font-family: 'Sofia', sans-serif;
-            font-size: 16PX;
-            text-transform: uppercase;
-            font-weight: 700;
-            
-        }
-
-        #embase-header .navbar-brand-menu-2 {
-            margin-right: 20px; /* Adjust spacing between items if needed */
-            color:  #343a40 ;
-            font-family: 'Sofia-pro', sans-serif;
-            text-transform: uppercase;
-            font-size: 16PX;
-            font-weight: 700;
-            
-        }
-
-        #embase-header .navbar-brand-menu-3 {
-            margin-right: 20px; /* Adjust spacing between items if needed */
-            color:  #343a40 ;
-            font-family: 'Sofia-pro', sans-serif;
-            text-transform: uppercase;  
-            font-size: 16PX;
-            font-weight: 700;
-        }
-
-        #embase-header .navbar-brand-menu-4 {
-            margin-right: 20px; /* Adjust spacing between items if needed */
-            color:  #343a40 ;
-            font-family: 'Sofia-pro', sans-serif !important;
-            font-size: 16PX;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        #embase-header .navbar-brand-menu-5 {
-            margin-right: 30px; /* Adjust spacing between items if needed */
-            color:  #343a40 ;
-            font-family: 'Sofia-pro', sans-serif;
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-
-
-
-    #embase-header {
-        padding: 20px; /* Adjust padding as needed */
-        color: white; /* Text color */
-        text-align: center;
+@media (max-width: 480px) {
+    #embase-header .navbar-brand-menu-1,
+    #embase-header .navbar-brand-menu-2,
+    #embase-header .navbar-brand-menu-3,
+    #embase-header .navbar-brand-menu-4,
+    #embase-header .navbar-brand-menu-5 {
+        font-size: 0.8rem; /* Even smaller size for very small screens */
     }
+}
 
-    .sidebar {
-        height: 100vh;
-        background-color: #ffffff; /* White background color for the sidebar */
-        color: grey;
-        width: 210px;
-        position: fixed;
-        right: 10;
-        top: 56px;
-        left: 0;
-        bottom: 100;
-        overflow-y: auto;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adding shadow on the right side */
-    }
+.sidebar {
+    height: 100vh;
+    background-color: #ffffff; /* White background color for the sidebar */
+    color: grey;
+    width: 210px;
+    position: fixed;
+    right: 10px;
+    top: 56px;
+    left: 0;
+    bottom: 100px;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Adding shadow on the right side */
+}
 
-    .sidebar-header {
-        background-color: #ffffff; /* Green background color for the top of the sidebar */
-        padding: 15px;
-        color: grey;
-    }
+.sidebar-header {
+    background-color: #ffffff; /* White background color for the top of the sidebar */
+    padding: 15px;
+    color: grey;
+}
 
-    .sidebar a {
-        color: grey;
-    }
+.sidebar a {
+    color: grey;
+}
 
-    .content {
-        padding: 5.0rem;
-        margin-left: 200px;
-        margin-right: 10; /* Set the right margin to 0 */
-    }
+.content {
+    padding: 5.0rem;
+    margin-left: 200px;
+    margin-right: 10px;
+}
+
+
+    
 </style>
 
 </head>
