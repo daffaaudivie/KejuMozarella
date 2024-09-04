@@ -64,10 +64,10 @@
               <div class="right-panel">
                 <div class="right-content fade-in">
                   <img src="{{ asset('img/keju.jpg') }}" alt="" class="right-image">
-                      <h5>Terlebih lagi, pada masa itu, keju belum begitu populer dikalangan masayrakat Indonesia. Namun, pak Rachmantio menyadari potensi besar dalam kualitas produk susu lokal dan sangat yakinakan daya 
-                        saingnya. Keyakinan ini mulai mendorongnya untuk memulaai produksi keju Gouda, jenis keju yang terkenal dengan cita rasanya yang khas
-                      </h5>  
-                      <button class="button-tentang">Lihat selengkapnya </button>             
+                  <h5>Terlebih lagi, pada masa itu, keju belum begitu populer dikalangan masayrakat Indonesia. Namun, pak Rachmantio menyadari potensi besar dalam kualitas produk susu lokal dan sangat yakinakan daya 
+                      saingnya. Keyakinan ini mulai mendorongnya untuk memulaai produksi keju Gouda, jenis keju yang terkenal dengan cita rasanya yang khas
+                    </h5>  
+                    <a href="" class="btn-tentang"> lihat selengkapnya</a>             
                 </div>
               </div>
             </div>       
