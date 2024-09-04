@@ -4,6 +4,9 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\landingpageController;
+use App\Http\Controllers\menuController;
+use App\Http\Controllers\produkController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +40,18 @@ Route::get('/landingpage/edit/{id}', [landingpageController::class, 'edit'])->na
 Route::resource('landingpage', LandingpageController::class);
 // Route::get('/dashboard', [LandingpageController::class, 'index']);
 
+//MenuAdmin
+Route::get('/menu',[menuController::class,"index"]);
+Route::get('/menu/create', [menuController::class, 'create'])->name('menu.create');
+Route::get('/menu/edit/{id}', [menuController::class, 'edit'])->name('menu.edit');
+Route::resource('menu', menuController::class); 
+
+//ProdukPageAdmin
+Route::get('/produk',[produkController::class,"index"]);
+Route::get('/produk/create', [produkController::class, 'create'])->name('produk.create');
+Route::get('/produk/edit/{id}', [produkController::class, 'edit'])->name('produk.edit');
+Route::resource('produk', produkController::class); 
+
 // web.php (routes file)
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
@@ -48,8 +63,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::get('/dashboard_admin', function () {
     return view('dashboard_admin');
-});
-
-Route::get('/dashboard4', function () {
-    return asset('storage/menu/menu1.jpg');
 });

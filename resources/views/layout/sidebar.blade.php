@@ -89,13 +89,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/kriteria">
-                        <i class="fas fa-building"></i> Data Kriteria
+                    <a class="nav-link" href="/KEJUMOZARELLA/public/produk">
+                        <i class="fas fa-building"></i> Data Produk
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/nilai">
-                        <i class="fas fa-address-card"></i> Data Penilaian
+                    <a class="nav-link" href="/KEJUMOZARELLA/public/menu">
+                        <i class="fas fa-address-card"></i> Kreasi Menu
                     </a>
                 </li>
                 <li class="nav-item">

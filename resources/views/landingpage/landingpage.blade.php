@@ -36,7 +36,7 @@
                         <td>{{ $baris->id_slider }}</td>
                         <td>
                             <!-- Menggunakan class 'img-fluid' untuk membuat gambar responsif -->
-                            <img src="{{ asset('storage/' . $baris->foto_slider) }}" alt="Slider Image" class="img-fluid" style="max-width: 800px;"> <!-- Batasi lebar gambar dengan 'max-width' -->
+                            <img src="{{ asset('storage/' . $baris->foto_slider) }}" alt="Slider Image" class="img-fluid" style="max-width: 100%; height: auto; max-width: 600px;">
                         </td>
                         <td>
                             <a href="{{ route('landingpage.edit', $baris->id_slider) }}" class="btn btn-warning text-white">Edit</a>

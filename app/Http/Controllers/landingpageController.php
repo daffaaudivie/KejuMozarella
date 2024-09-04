@@ -17,9 +17,6 @@ class LandingpageController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('landingpage.create_landingpage');
@@ -95,7 +92,6 @@ class LandingpageController extends Controller
     {
         // Assuming you want to show the first slider image in coba.blade.php
         $tb_slider = Landingpage::first();
-        
 
         return view('dashboard  ', compact('tb_slider'));
     }
