@@ -82,22 +82,30 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
+
                     <a class="nav-link" href="{{ url('/dashboard_admin') }}">
+
                         <i class="fas fa-home"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="{{ url('/landing_page') }}">
+
                     <i class="fas fa-home"></i> Landing Page 
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="{{ url('/produk') }}">
+
                         <i class="fas fa-building"></i> Data Produk
                     </a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="{{ url('/menu') }}">
+
                         <i class="fas fa-address-card"></i> Kreasi Menu
                     </a>
                 </li>

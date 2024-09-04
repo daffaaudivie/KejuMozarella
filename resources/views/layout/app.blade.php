@@ -22,6 +22,7 @@
     <!-- Custom CSS -->
     <style>
     body {
+
     padding-top: 80px; /* Adjust based on your top bar height */
     background-color: #e9ecef;
     width: 100%; /* Full width */
@@ -69,6 +70,7 @@
     #embase-header .navbar-brand-menu-4,
     #embase-header .navbar-brand-menu-5 {
         font-size: 0.9rem; /* Smaller size for smaller screens */
+
     }
 }
 
