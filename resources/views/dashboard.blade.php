@@ -1,10 +1,11 @@
-@extends('layout.app')
+@include('layout.app')
 
 @section('title', 'Landing Page')
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -15,7 +16,7 @@
 <div class="hero-section" style="background-image: url('{{ asset('storage/' . $tb_slider->foto_slider) }}');">
     <div class="overlay"></div>
     <div class="hero-content">
-        <h1>KEJU MOZARELLA KHAS MALANG</h1>
+        <h3>KEJU MOZARELLA KHAS MALANG</h1>
         <p>Try our fresh and creamy mozzarella cheese, made locally in Malang. Perfect for every dish!</p>
         <a href="#" class="btn">Learn More</a>
     </div>
@@ -65,7 +66,8 @@
                   <img src="{{ asset('img/keju.jpg') }}" alt="" class="right-image">
                       <h5>Terlebih lagi, pada masa itu, keju belum begitu populer dikalangan masayrakat Indonesia. Namun, pak Rachmantio menyadari potensi besar dalam kualitas produk susu lokal dan sangat yakinakan daya 
                         saingnya. Keyakinan ini mulai mendorongnya untuk memulaai produksi keju Gouda, jenis keju yang terkenal dengan cita rasanya yang khas
-                      </h5>               
+                      </h5>  
+                      <button class="button-tentang">Lihat selengkapnya </button>             
                 </div>
               </div>
             </div>       
@@ -93,7 +95,7 @@
     <div class="container-menu mt-15">
         <h2 class="text-center mt-15">KREASI MENU</h2>
         <p class="text-kita">Berikut adalah kreasi menu yang bisa anda buat dengan menggunakan produk keju kami.</p>
-        <div class="row">
+        <div class="row-menu">
             <div class="col-card" >
                 <div class="card">
                     <img src="{{ asset('img/menu/menu1.jpg') }}" class="card-img-top" alt="Bromo">
@@ -273,12 +275,12 @@
         <!-- Footer -->
             <footer class="footer text-white py-4">
             <div class="container-footer">
-                <div class="row">
+                <div class="row-footer">
                     <!-- Kolom pertama: Deskripsi Perusahaan -->
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <h4>Kontak Kami</h4>
                         <p>Punya pertanyaan, permintaan, atau hanya ingin menunjukkan dukungan Anda untuk <br> produk Mustarika Jaya? 
-                        Kami akan senang mendengarnya dari Anda!  Hubungi tim kami jika ada pertanyaan, <br>  seputar peluang kemitraan,  atau sekedar ingin menyapa kami.<br>
+                        Kami akan senang mendengarnya dari Anda! Hubungi tim kami jika ada pertanyaan, <br> seputar peluang kemitraan, atau sekedar ingin menyapa kami.<br>
                         </p>
                     </div>
                     <!-- Kolom kedua: Menu Navigasi -->
@@ -300,6 +302,7 @@
                         </p>
                     </div>
                 </div>
+                
                 <!-- Baris Bawah: Sosial Media -->
                 <div class="row-sosmed">
                     <div class="col text-center text-white">
