@@ -44,11 +44,11 @@
         }
 
         #embase-header .navbar-brand-menu-1 {
-            margin-left: 1050px;
+            margin-left: 620px;
             margin-right: 20px; /* Adjust spacing between items if needed */
             color:  #343a40 ;
             font-family: 'Sofia', sans-serif;
-            font-size: 18px;
+            font-size: 16PX;
             text-transform: uppercase;
             font-weight: 700;
             
@@ -59,7 +59,7 @@
             color:  #343a40 ;
             font-family: 'Sofia-pro', sans-serif;
             text-transform: uppercase;
-            font-size: 18px;
+            font-size: 16PX;
             font-weight: 700;
             
         }
@@ -69,7 +69,7 @@
             color:  #343a40 ;
             font-family: 'Sofia-pro', sans-serif;
             text-transform: uppercase;  
-            font-size: 18px;
+            font-size: 16PX;
             font-weight: 700;
         }
 
@@ -77,16 +77,16 @@
             margin-right: 20px; /* Adjust spacing between items if needed */
             color:  #343a40 ;
             font-family: 'Sofia-pro', sans-serif !important;
-            font-size: 18px;
+            font-size: 16PX;
             text-transform: uppercase;
             font-weight: 700;
         }
 
         #embase-header .navbar-brand-menu-5 {
-            margin-right: 20px; /* Adjust spacing between items if needed */
+            margin-right: 30px; /* Adjust spacing between items if needed */
             color:  #343a40 ;
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
+            font-family: 'Sofia-pro', sans-serif;
+            font-size: 16px;
             text-transform: uppercase;
             font-weight: 700;
         }

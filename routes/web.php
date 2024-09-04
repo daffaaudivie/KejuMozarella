@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\landingpageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('dashboard_admin');
 })->middleware('auth');
 
 
@@ -29,13 +30,26 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authe
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
 
+//LandingPageAdmin
+Route::get('/landingpage',[landingpageController::class,"index"]);
+Route::get('/landingpage/create', [landingpageController::class, 'create'])->name('landingpage.create');
+Route::get('/landingpage/edit/{id}', [landingpageController::class, 'edit'])->name('alternatif.edit');
+Route::resource('landingpage', LandingpageController::class);
+// Route::get('/dashboard', [LandingpageController::class, 'index']);
+
+// web.php (routes file)
+Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
+Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
+Route::get('/dashboard_admin', [LandingpageController::class, 'dashboard_admin']);
+
+
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/dashboard_admin', function () {
+    return view('dashboard_admin');
 });
 
-Route::get('/coba', function () {
-    return view('coba');
+Route::get('/dashboard4', function () {
+    return asset('storage/menu/menu1.jpg');
 });

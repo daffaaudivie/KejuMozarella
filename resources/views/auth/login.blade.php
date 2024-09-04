@@ -45,12 +45,6 @@
         border-radius: 4px;
       }
 
-      .form-signin img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
       .text-muted {
         color: #6c757d !important;
       }
@@ -60,9 +54,10 @@
       }
 
       .field-icon {
-        position: absolute  ;
-        top: 60%;
+        position: absolute;
+        top: 62%;
         right: 10px;
+        /* transform: translateY(-30%); */
         cursor: pointer;
         color: #999;
       }
@@ -76,7 +71,9 @@
     <main class="form-signin">
       <form action="{{ route('auth.authenticate') }}" method="POST">
         @csrf
-        <img class="mb-4" src="{{ asset('img/KejuLogo.jpeg') }}" alt="Keju Logo" width="150" height="150">
+
+        <!-- Memastikan gambar berada di tengah -->
+        <img class="mb-2 mx-auto d-block" src="{{ asset('img/logokejuu.png') }}" alt="Keju Logo" style="max-width: 100%; width: 250px; height: auto;">
 
         <h1 class="h3 mb-3 fw-normal text-left">Login ke Akun Anda</h1>
 
@@ -94,7 +91,7 @@
         <div class="form-floating password-wrapper">
           <label for="password">Password</label>
           <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password">
-          <span class="fa fa-fw fa-eye field-icon toggle-password"></span>     
+          <dive class="fa fa-fw fa-eye field-icon toggle-password"></div>     
 
           @error('password')
           <div class="invalid-feedback">
