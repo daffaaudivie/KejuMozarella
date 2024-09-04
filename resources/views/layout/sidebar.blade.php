@@ -79,22 +79,22 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="/KEJUMOZARELLA/public/dashboard_admin">
+                    <a class="nav-link" href="/dashboard_admin">
                         <i class="fas fa-home"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/KEJUMOZARELLA/public/landingpage">
+                    <a class="nav-link" href="/landingpage">
                     <i class="fas fa-home"></i> Landing Page 
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/KEJUMOZARELLA/public/produk">
+                    <a class="nav-link" href="/produk">
                         <i class="fas fa-building"></i> Data Produk
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/KEJUMOZARELLA/public/menu">
+                    <a class="nav-link" href="/menu">
                         <i class="fas fa-address-card"></i> Kreasi Menu
                     </a>
                 </li>

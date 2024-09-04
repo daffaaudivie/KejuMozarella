@@ -22,8 +22,8 @@
     <!-- Custom CSS -->
     <style>
     body {
-        padding-top: 80px; /* Adjust based on your top bar height */
-        background-color: #e9ecef;
+        padding-top: 0px; /* Adjust based on your top bar height */
+        background-color:   transparent;
     }
 
     .navbar-dark {

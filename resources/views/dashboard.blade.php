@@ -167,46 +167,98 @@
     <h5>All Natural | Made in Singosari | Milk from Alam Hijau Lestari | Tradition Since 1919</h5>
 </div>
 
-   <!-- Form Section -->
-   <section class="contact-section py-5">
-    <div class="container">
-        <div class="row">
-            <!-- Kolom Form -->
-            <div class="col-lg-6" >
-                <form class="contact-form">
-                    <h3>Hubungi Kami</h3>
-                    <div class="form-group">
-                        <!-- <p>Nama Anda</p> -->
-                        <input type="text" class="form-control" placeholder="Nama Lengkap" required>
-                    </div>  
-                    <div class="form-group">
-                        <!-- <p>Nomor Telepon</p> -->
-                        <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
-                    </div>
-                    <div class="form-group">
-                        <!-- <p>Nama Anda</p> -->
-                        <input type="email" class="form-control" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <!-- <p>Nama Anda</p> -->
-                        <textarea class="form-control" rows="4" placeholder="Jelaskan tujuan anda" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Kirim</button>
-                </form>
-            </div>
+ <!-- Contact Section -->
+ <section class="pembelian-section">
+    <h2 class="text-center mt-15">INFORMASI PEMBELIAN</h2>
+    <p class="text-beli">"Anda dapat membeli produk kami dengan datang langsung ke swalayan berikut: 
+        Superindo, Alfamart, Indomaret, Giant, Hypermart, LotteMart, dan Carrefour. Pastikan untuk mengecek ketersediaan produk kami di swalayan terdekat Anda. Kami terus bekerja sama dengan berbagai swalayan besar di seluruh Indonesia untuk memastikan produk-produk kami dapat dengan mudah Anda temukan."
+    </p>
+    <h4 class="text-store">Store</h4>
+    <div class="logo-container">
+        <div class="logo-box">
+        <img src="{{ asset('img/store/indomaret.png') }}" alt="Logo indomaret">
+        </div>
+        <div class="logo-box">
+        <img src="{{ asset('img/store/alfamart.svg') }}" alt="Logo alfamart">
+        </div>
+        <div class="logo-box">
+             <img src="{{ asset('img/store/superindo.png') }}" alt="Logo Superindo">
+        </div>
+        <div class="logo-box">
+        <img src="{{ asset('img/store/Lottemart.jpg') }}" alt="Logo lottemart">
+        </div>
+        <div class="logo-box">
+        <img src="{{ asset('img/store/carrefour.webp') }}" alt="Logo carrefour">
+        </div>
+        <!-- Tambahkan lebih banyak logo jika diperlukan -->
+    </div>
+    <h4 class="text-store">e-Commerce</h4>
+    <div class="logo-container">
+        <div class="logo-box">
+        <img src="{{ asset('img/online/tokopedia.jpg') }}" alt="Logo tokopedia">
+        </div>
+        <div class="logo-box">
+        <img src="{{ asset('img/online/shopee.jpg') }}" alt="Logo shopee">
+       </div>
+        <div class="logo-box">
+             <img src="{{ asset('img/online/lazada.jpg') }}" alt="Logo lazada">
+        </div>
+        <div class="logo-box">
+        <img src="{{ asset('img/online/bukalapak.png') }}" alt="Logo bukalapak">
+        </div>
+        <div class="logo-box">
+        <img src="{{ asset('img/online/blibli.jpg') }}" alt="Logo blibli">
+        </div>
+        <!-- Tambahkan lebih banyak logo jika diperlukan -->
+    </div>
+</section>
 
-            <!-- Kolom Informasi -->
-            <div class="col-lg-5  col-md-6">
-                <h3>Kerja Sama untuk Masa Depan</h3>
-                <p>Tertarik bekerja sama dengan Mustarika Jaya? Isi form dan mari mulai diskusi mewujudkan tujuanmu.</p>
-                <div class="contact-info align-items-end text-end">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i> info@kejumalang.com
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Form Column -->
+            <div class="col-lg-8">
+                <h3>Yuk Hubungi Kami</h3>
+                <form class="contact-form">
+                    <div class="form-group ">
+                        <select class="form-control">
+                            <option disabled selected>Pilih Kategori</option>
+                            <option>Ingin Menjadi Distributor</option>
+                            <option>Ingin Menjadi Reseller</option>
+                            <option>Ingin Membeli Produk</option>
+                            <option>Lainya</option>
+                        </select>
                     </div>
-                    <div class="info-item align-items-end text-end">
-                        <i class="fab fa-whatsapp"></i> +62 812 3456 7890
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Nama" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="tel" class="form-control" placeholder="No Handphone" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="Nama Perusahaan">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <textarea class="form-control" rows="5" placeholder="Pesan" required></textarea>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="contact-info-box">
+                                <p><i class="fas fa-envelope"></i> harsyad.Tech@harsyad.co.id</p>
+                                <p><i class="fas fa-phone"></i> +6281233445566 (sit Amet)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark col-md-2">Kirim</button>
+                </form>
             </div>
         </div>
     </div>
@@ -214,9 +266,10 @@
 
 
 
-    <h2 class="text-center mt-15">INFORMASI PEMBELIAN</h2>
-        <p class="text-kita">Anda dapat membeli produk kami dengan datang ke swalayan berikut</p>
-            
+   
+
+
+
         <!-- Footer -->
             <footer class="footer text-white py-4">
             <div class="container-footer">
