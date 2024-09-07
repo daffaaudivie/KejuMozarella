@@ -21,11 +21,11 @@
     <style>
     body {
         padding-top: 56px; /* Adjust based on your top bar height */
-        background-color: #ffffff;
+        background-color: #e9ecef;
     }
 
     .navbar {
-        background-color: #636363; /* Light green background color for the entire top bar */
+        background-color: #9ACE8B; /* Light green background color for the entire top bar */
     }
 
     #embase-header {
@@ -82,28 +82,36 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="/dashboard_admin">
+
+                    <a class="nav-link" href="{{ url('/dashboard_admin') }}">
+
                         <i class="fas fa-home"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/landingpage">
+
+                    <a class="nav-link" href="{{ url('/landing_page') }}">
+
                     <i class="fas fa-home"></i> Landing Page 
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/produk">
+
+                    <a class="nav-link" href="{{ url('/produk') }}">
+
                         <i class="fas fa-building"></i> Data Produk
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/menu">
+
+                    <a class="nav-link" href="{{ url('/menu') }}">
+
                         <i class="fas fa-address-card"></i> Kreasi Menu
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pesan">
-                        <i class="fas fa-address-card"></i> Pesan Masuk
+                    <a class="nav-link" href="/hasil">
+                        <i class="fas fa-address-card"></i> Data Perankingan
                     </a>
                 
                 <!-- Add more links as needed -->
