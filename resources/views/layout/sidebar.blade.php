@@ -10,19 +10,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tiny.cloud/1/u7bdq12p91l1m4t7oqos07q1xuiaroyxb30qw5ntv5ctmq8u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
 
     <!-- Custom CSS -->
     <style>
     body {
         padding-top: 56px; /* Adjust based on your top bar height */
-        background-color: #e9ecef;
+        background-color: #ffffff;
     }
 
     .navbar {
-        background-color: #9ACE8B; /* Light green background color for the entire top bar */
+        background-color: #636363; /* Light green background color for the entire top bar */
     }
 
     #embase-header {
@@ -99,8 +102,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/hasil">
-                        <i class="fas fa-address-card"></i> Data Perankingan
+                    <a class="nav-link" href="/pesan">
+                        <i class="fas fa-address-card"></i> Pesan Masuk
                     </a>
                 
                 <!-- Add more links as needed -->

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\landingpageController;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\pesanController;
 
 
 /*
@@ -51,6 +52,12 @@ Route::get('/produk',[produkController::class,"index"]);
 Route::get('/produk/create', [produkController::class, 'create'])->name('produk.create');
 Route::get('/produk/edit/{id}', [produkController::class, 'edit'])->name('produk.edit');
 Route::resource('produk', produkController::class); 
+
+//PesanPageAdmin
+Route::get('/pesan',[pesanController::class,"index"]);
+Route::get('/pesan/create', [pesanController::class, 'create'])->name('pesan.create');
+Route::get('/pesan/edit/{id}', [pesanController::class, 'edit'])->name('pesan.edit');
+Route::resource('pesan', pesanController::class); 
 
 // web.php (routes file)
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);

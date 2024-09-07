@@ -12,9 +12,11 @@ class Produk extends Model
         'nama_produk',
         'foto_produk',
         'kode_kategori',
+        'harga',
         'deskripsi_produk',
     ];
     public $timestamps = false;
+    protected $primaryKey = 'id_produk';
 
     public function kategori()
     {

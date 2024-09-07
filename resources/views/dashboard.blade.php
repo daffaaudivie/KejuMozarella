@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -214,50 +216,61 @@
 </section>
 
   <!-- Contact Section -->
-  <section class="contact-section">
+  <section id="contact-section" class="contact-section">
     <div class="container">
         <div class="row justify-content-center">
             <!-- Form Column -->
             <div class="col-lg-8">
                 <h3>Yuk Hubungi Kami</h3>
-                <form class="contact-form">
-                    <div class="form-group ">
-                        <select class="form-control">
-                            <option disabled selected>Pilih Kategori</option>
-                            <option>Ingin Menjadi Distributor</option>
-                            <option>Ingin Menjadi Reseller</option>
-                            <option>Ingin Membeli Produk</option>
-                            <option>Lainya</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="Nama" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="tel" class="form-control" placeholder="No Handphone" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="Nama Perusahaan">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <textarea class="form-control" rows="5" placeholder="Pesan" required></textarea>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <div class="contact-info-box">
-                                <p><i class="fas fa-envelope"></i> harsyad.Tech@harsyad.co.id</p>
-                                <p><i class="fas fa-phone"></i> +6281233445566 (sit Amet)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-dark col-md-2">Kirim</button>
+                <form class="contact-form" action="{{ route('pesan.store') }}" method="POST">
+                @csrf
+    <div class="form-group">
+        <select class="form-control" name="kategori_pesan" required>
+            <option disabled selected>Pilih Kategori</option>
+            <option value="Distributor">Ingin Menjadi Distributor</option>
+            <option value="Reseller">Ingin Menjadi Reseller</option>
+            <option value="Pembeli">Ingin Membeli Produk</option>
+            <option value="Lainnya">Lainnya</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="nama" placeholder="Nama" required>
+        </div>
+        <div class="form-group col-md-6">
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="tel" class="form-control" name="nomor" placeholder="No Handphone" required>
+        </div>
+        <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="nama_perusahaan" placeholder="Nama Perusahaan">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8">
+            <textarea class="form-control" name="pesan" rows="5" placeholder="Pesan" required></textarea>
+        </div>
+        <div class="form-group col-md-4">
+            <div class="contact-info-box">
+                <p><i class="fas fa-envelope"></i> harsyad.Tech@harsyad.co.id</p>
+                <p><i class="fas fa-phone"></i> +6281233445566 (sit Amet)</p>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark col-md-2">Kirim</button>
+    <script>
+        @if(session('success'))
+                Swal.fire({
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        </script>
                 </form>
             </div>
         </div>
