@@ -12,10 +12,7 @@ class Kategori extends Model
     protected $table = 'tb_kategori'; // Nama tabel di database
 
     protected $fillable = ['nama_kategori']; // Kolom yang bisa diisi
-
-    public function nilai()
-    {
-        return $this->hasMany(Nilai::class, 'id_alternatif', 'id');
-    }
+    protected $primaryKey = 'id_kategori';
+    
 }
 
