@@ -39,7 +39,6 @@ Route::get('/landingpage',[landingpageController::class,"index"]);
 Route::get('/landingpage/create', [landingpageController::class, 'create'])->name('landingpage.create');
 Route::get('/landingpage/edit/{id}', [landingpageController::class, 'edit'])->name('alternatif.edit');
 Route::resource('landingpage', LandingpageController::class);
-// Route::get('/dashboard', [LandingpageController::class, 'index']);
 
 //MenuAdmin
 Route::get('/menu',[menuController::class,"index"]);
@@ -61,7 +60,7 @@ Route::resource('pesan', pesanController::class);
 
 // web.php (routes file)
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
-Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
+Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
 Route::get('/dashboard_admin', [LandingpageController::class, 'dashboard_admin']);
 
 

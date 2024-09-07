@@ -1,19 +1,7 @@
-@include('layout.app')
+@extends('layout.Pengguna.app')
 
 @section('title', 'Landing Page')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-</head>
-
-<body>
 
 <div class="hero-section" style="background-image: url('{{ asset('storage/' . $tb_slider->foto_slider) }}');">
     <div class="overlay"></div>
@@ -66,10 +54,10 @@
               <div class="right-panel">
                 <div class="right-content fade-in">
                   <img src="{{ asset('img/keju.jpg') }}" alt="" class="right-image">
-                      <h5>Terlebih lagi, pada masa itu, keju belum begitu populer dikalangan masayrakat Indonesia. Namun, pak Rachmantio menyadari potensi besar dalam kualitas produk susu lokal dan sangat yakinakan daya 
-                        saingnya. Keyakinan ini mulai mendorongnya untuk memulaai produksi keju Gouda, jenis keju yang terkenal dengan cita rasanya yang khas
-                      </h5>  
-                      <button class="button-tentang">Lihat selengkapnya </button>             
+                  <h5>Terlebih lagi, pada masa itu, keju belum begitu populer dikalangan masayrakat Indonesia. Namun, pak Rachmantio menyadari potensi besar dalam kualitas produk susu lokal dan sangat yakinakan daya 
+                      saingnya. Keyakinan ini mulai mendorongnya untuk memulaai produksi keju Gouda, jenis keju yang terkenal dengan cita rasanya yang khas
+                    </h5>  
+                    <a href="" class="btn-tentang"> lihat selengkapnya</a>             
                 </div>
               </div>
             </div>       
@@ -98,71 +86,18 @@
         <h2 class="text-center mt-15">KREASI MENU</h2>
         <p class="text-kita">Berikut adalah kreasi menu yang bisa anda buat dengan menggunakan produk keju kami.</p>
         <div class="row-menu">
-            <div class="col-card" >
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu1.jpg') }}" class="card-img-top" alt="Bromo">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Bola Keju</h5>
-                    </div>
-                </div>
-            </div>
+            @foreach($menus as $menu)
             <div class="col-card">
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu2.jpg') }}" class="card-img-top" alt="Kawah Ijen">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Pizza</h5>
+                <a href="{{ url('/dashboard/detailMenu/' . $menu->id_menu) }}" class="text-decoration-none text-dark">
+                    <div class="card">
+                        <img src="{{ asset('storage/' . $menu->foto_menu) }}" class="card-img-top" alt="{{ $menu->nama_menu }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $menu->nama_menu }}</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-card">
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu3.jpg') }}" class="card-img-top" alt="Tumpak Sewu">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Crispy Cheese</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-card">
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu4.jpg') }}" class="card-img-top" alt="Tumpak Sewu">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Slices</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-card" >
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu5.jpg') }}" class="card-img-top" alt="Bromo">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Donat</h5>
-                    </div>
-                </div>
-            </div>
-            <!-- Kawah Ijen -->
-            <div class="col-card">
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu6.jpg') }}" class="card-img-top" alt="Kawah Ijen">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Mac n Cheese</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-card">
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu7.jpg') }}" class="card-img-top" alt="Tumpak Sewu">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Risol Keju</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-card">
-                <div class="card">
-                    <img src="{{ asset('img/menu/menu8.jpg') }}" class="card-img-top" alt="Tumpak Sewu">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Cheeseroll</h5>
-                    </div>
-                </div>
-            </div>
+        @endforeach
         </div>
     </div>
 
@@ -280,60 +215,3 @@
 </section>
 
 
-
-   
-
-
-
-        <!-- Footer -->
-            <footer class="footer text-white py-4">
-            <div class="container-footer">
-                <div class="row-footer">
-                    <!-- Kolom pertama: Deskripsi Perusahaan -->
-                    <div class="col-sm-4">
-                        <h4>Kontak Kami</h4>
-                        <p>Punya pertanyaan, permintaan, atau hanya ingin menunjukkan dukungan Anda untuk <br> produk Mustarika Jaya? 
-                        Kami akan senang mendengarnya dari Anda! Hubungi tim kami jika ada pertanyaan, <br> seputar peluang kemitraan, atau sekedar ingin menyapa kami.<br>
-                        </p>
-                    </div>
-                    <!-- Kolom kedua: Menu Navigasi -->
-                    <div class="col-sm-4">
-                        <h5>Menu</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#kisah-kami" class="text-white">Kisah Kami</a></li>
-                            <li><a href="#produk" class="text-white">Produk</a></li>
-                            <li><a href="#kreasi-menu" class="text-white">Kreasi Menu</a></li>
-                            <li><a href="#kontak" class="text-white">Kontak Kami</a></li>
-                        </ul>
-                    </div>
-                    <!-- Kolom ketiga: Info Kontak -->
-                    <div class="col-sm-4">
-                        <h5>Alamat Kami</h5>
-                        <p> UK Mustarika Jaya <br>
-                            Perum Alam Hijau Lestari No. L-12, <br> Jl. Raya Cendana, Singosari, Malang<br>
-                            info@kejumalang.com <br> +62 812 3456 7890
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Baris Bawah: Sosial Media -->
-                <div class="row-sosmed">
-                    <div class="col text-center text-white">
-                    <h5>Visit Our Social Media</h5>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="https://wa.me/6285155442305" class="text-white mx-2"><i class="fab fa-whatsapp fa-2x"></i></a>
-                        <a href="#" class="text-white mx-2"><i class="fab fa-youtube fa-2x"></i></a>
-                    </div>
-                </div>
-                <!-- Baris Copyright -->
-                <div class="row mt-1">
-                    <div class="col text-center text-white">
-                        <p class="mb-0">&copy; UK Mustarika Jaya. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-    
-</html>
