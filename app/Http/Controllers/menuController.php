@@ -30,6 +30,7 @@ class MenuController extends Controller
             'foto_menu' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'deskripsi_menu' => 'required|string',
             'resep' => 'required|string',
+            'langkah_pembuatan' => 'required|string',
         ]);
 
         // Proses upload foto
@@ -45,53 +46,57 @@ class MenuController extends Controller
             'foto_menu' => $fotoPath, // Simpan path gambar yang sudah diupload
             'deskripsi_menu' => $request->deskripsi_menu,
             'resep' => $request->resep,
+            'langkah_pembuatan' => $request->langkah_pembuatan,
         ]);
 
         return redirect()->route('menu.index')->with('success', 'Berhasil Menyimpan Data');
     }
 
     public function edit($id_menu)
-    {
-        $Menu = Menu::findOrFail($id_menu);
+{
+    // Menemukan menu berdasarkan id_menu
+    $menu = Menu::where('id_menu', $id_menu)->firstOrFail();
 
-        return view('menu.menu_edit', compact('Menu'));
-    }
+    // Mengirim data ke view
+    return view('menu.edit_menu', compact('menu'));
+}
 
-    public function update(Request $request, $id_menu)
-    {
-        $request->validate([
-            'nama_menu' => 'required|string|max:255',
-            'foto_menu' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'deskripsi_menu' => 'required|string',
-            'resep' => 'required|string',
-        ]);
+public function update(Request $request, $id_menu)
+{
+    $request->validate([
+        'nama_menu' => 'required|string|max:255',
+        'foto_menu' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'deskripsi_menu' => 'required|string',
+        'resep' => 'required|string',
+        'langkah_pembuatan' => 'required|string',
+    ]);
 
-        $Menu = Menu::findOrFail($id_menu);
+    $menu = Menu::where('id_menu', $id_menu)->firstOrFail();
 
-        // Cek jika ada file foto yang baru diupload
-        if ($request->hasFile('foto_menu')) {
-            // Hapus foto lama jika ada
-            if ($Menu->foto_menu) {
-                Storage::disk('public')->delete($Menu->foto_menu);
-            }
-
-            // Simpan foto baru
-            $fotoPath = $request->file('foto_menu')->store('menu', 'public');
-        } else {
-            $fotoPath = $Menu->foto_menu; // Jika tidak ada foto baru, simpan yang lama
+    // Cek jika ada file foto yang baru diupload
+    if ($request->hasFile('foto_menu')) {
+        // Hapus foto lama jika ada
+        if ($menu->foto_menu) {
+            Storage::disk('public')->delete($menu->foto_menu);
         }
 
-        // Update data ke database
-        $Menu->update([
-            'nama_menu' => $request->nama_menu,
-            'foto_menu' => $fotoPath,
-            'deskripsi_menu' => $request->deskripsi_menu,
-            'resep' => $request->resep,
-        ]);
-
-        return redirect()->route('menu.index')->with('success', 'Berhasil Mengupdate Data');
+        // Simpan foto baru
+        $fotoPath = $request->file('foto_menu')->store('menu', 'public');
+    } else {
+        $fotoPath = $menu->foto_menu; // Jika tidak ada foto baru, simpan yang lama
     }
 
+    // Update data ke database
+    $menu->update([
+        'nama_menu' => $request->nama_menu,
+        'foto_menu' => $fotoPath,
+        'deskripsi_menu' => $request->deskripsi_menu,
+        'resep' => $request->resep,
+        'langkah_pembuatan' => $request->langkah_pembuatan,
+    ]);
+
+    return redirect()->route('menu.index')->with('success', 'Berhasil Mengupdate Data');
+}
     public function destroy($id_menu)
     {
         $Menu = Menu::findOrFail($id_menu);
@@ -104,7 +109,7 @@ class MenuController extends Controller
         // Hapus data dari database
         $Menu->delete();
 
-        return redirect()->route('menu.index')->with('success', 'Berhasil Menghapus Data');
+        return redirect()->route('menu.index');
     }
 
     public function showLandingPage()

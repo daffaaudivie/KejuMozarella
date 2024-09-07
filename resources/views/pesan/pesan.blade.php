@@ -1,6 +1,6 @@
 @extends('layout.sidebar')
 
-@section('title', 'Data Kreasi Produk')
+@section('title', 'Data Pesan Masuk')
 
 <!-- Menambahkan gaya CSS -->
 <style>
@@ -25,61 +25,55 @@
 </style>
 
 <div class="container mt-6">
-<div class="row">
+    <div class="row">
         <div class="col-md-12 text-center">
-            <h1 style="font-size: 30px;">Produk</h1>
+            <h1 style="font-size: 30px;">Data Pesan Masuk</h1>
         </div>
     </div>
-    <div class="row mt-3">
+    <!-- <div class="row mt-3"> 
         <div class="col-md-12 text-right">
-            <a class="btn btn-dark" href="{{ route('produk.create') }}">Tambah Data +</a>
+            <a class="btn btn-dark" href="#">Tambah Data +</a>
         </div>
-    </div>
+    </div> -->
 
     <!-- Menambahkan kelas untuk container tabel -->
     <div class="table-container">
-        <table class="table table-bordered mx-auto">
+        <table class="table table-bordered mx-auto col-md-12">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nama Produk</th>
-                    <th>Foto Produk</th>
-                    <th>Kategori Produk</th>
-                    <th>Harga</th>
-                    <th>Deskripsi Produk</th>
+                    <th>ID Pesan</th>
+                    <th>Kategori Pesan</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Nomor</th>
+                    <!-- <th>Nama Perusahaan</th> -->
+                    <th>Pesan</th>
                     <th class="aksi">Aksi</th>
-                    
                 </tr>
             </thead>
             <tbody>
-                @foreach($tb_produk as $index => $baris)
+                @foreach($tb_pesan as $index => $baris)
                     <tr class="{{ $index % 2 == 0 ? 'table-warning' : 'table-bordered' }}">
-                        <td>{{ $baris['id_produk'] }}</td>
-                        <td>{{ $baris['nama_produk'] }}</td>
-                        <td>
-                            <!-- Menggunakan class 'img-fluid' untuk membuat gambar responsif -->
-                            <img src="{{ asset('storage/' . $baris->foto_produk) }}" alt="Produk Image" class="img-fluid" style="max-width: 200px; height: auto; max-width: 300px;">
-                        </td>
-                        <td>{{ $baris['kode_kategori'] }}</td>
-                        <td>{{ $baris['harga'] }}</td>
-                        <td>{{ $baris['deskripsi_produk'] }}</td>
+                        <td>{{ $baris['id_pesan'] }}</td>
+                        <td>{{ $baris['kategori_pesan'] }}</td>
+                        <td>{{ $baris['nama'] }}</td>
+                        <td>{{ $baris['email'] }}</td>
+                        <td>{{ $baris['nomor'] }}</td>
+                        <!-- <td>{{ $baris['nama_perusahaan'] }}</td> -->
+                        <td>{{ $baris['pesan'] }}</td>
                         <td class="aksi">
-                            <a href="{{ route('produk.edit', $baris->id_produk) }}" class="btn btn-warning text-white">Edit</a>
-                            <form action="{{ route('produk.destroy', $baris->id_produk) }}" method="POST" style="display:inline-block" class="delete-form">
+                            <form action="{{ route('pesan.destroy', $baris->id_pesan) }}" method="POST" style="display:inline-block" class="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <!-- Tombol hapus yang bukan type submit -->
                                 <button type="button" class="btn btn-danger delete-btn">Hapus</button>
                             </form>
                         </td>
-                        
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-
-    
 </div>
 
 <!-- Script SweetAlert2 -->
@@ -97,7 +91,7 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6', 
+                cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Ya, hapus!',
                 cancelButtonText: 'Batal'
             }).then((result) => {

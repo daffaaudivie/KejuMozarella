@@ -8,11 +8,10 @@
             <h1 class="text-center mb-4">Tambah Foto Kreasi Produk</h1>
             <form method="POST" action="{{ route('produk.store') }}" enctype="multipart/form-data" id="myForm">
                 @csrf
-                    <label for="nama_produk" class="col-sm-2 col-form-label">Nama Produk</label>
+                    <label for="nama_produk" class="col-sm-6 col-form-label">Nama Produk</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
                     </div>
-
                     <label for="foto_produk" class="col-sm-2 col-form-label">Foto Produk</label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*" required>
@@ -26,6 +25,11 @@
                             <option value="{{ $a->id_kategori }}">{{ $a->nama_kategori }}</option>
                         @endforeach
                         </select>
+                    </div>
+
+                    <label for="harga" class="col-sm-4 col-form-label">Harga Produk</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="harga" name="harga" required>
                     </div>
 
                     <div class="form-group">

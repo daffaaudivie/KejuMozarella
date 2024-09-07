@@ -1,6 +1,15 @@
 @extends('layout.sidebar')
 
 @section('title', 'Data Kreasi Menu')
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+        tinymce.init({
+            selector: 'textarea#resep', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'code table lists',
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+        });
+        </script>
+
 
 <div class="container mt-5">
     <div class="row">
@@ -27,10 +36,17 @@
                 <div class="form-group">
                     <label for="resep" class="col-sm-2 col-form-label">Resep</label>
                     <div class="col-sm-10">
-                        <!-- Mengganti input menjadi textarea -->
-                        <textarea class="form-control" id="resep" name="resep" rows="4" required></textarea>
+                        <textarea class="form-control" id="resep" name="resep" required></textarea>
                     </div>
                 </div>
+                
+                <div class="form-group">
+                    <label for="langkah_pembuatan" class="col-sm-2 col-form-label">Langkah Pembuatan</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="langkah_pembuatan" name="langkah_pembuatan" required></textarea>
+                    </div>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
@@ -62,3 +78,20 @@
         });
     });
 </script>
+
+<!-- teks editor -->
+<!-- Teks editor TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#resep, #langkah_pembuatan',
+        menubar: false,
+        plugins: 'lists link image charmap preview',
+        toolbar: 'undo redo | formatselect | bold italic backcolor | \
+                 alignleft aligncenter alignright alignjustify | \
+                 bullist numlist outdent indent | removeformat | preview',
+        height: 300
+    });
+</script>
+
+

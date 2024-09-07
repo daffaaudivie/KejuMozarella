@@ -13,7 +13,9 @@ class Menu extends Model
         'foto_menu',
         'deskripsi_menu',
         'resep',
+    'langkah_pembuatan',
     ];
     public $timestamps = false;
+    protected $primaryKey = 'id_menu';
 
 }
