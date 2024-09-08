@@ -72,14 +72,22 @@
             <div class="ingredients">
                 <h2>Ingredients</h2>
                 <hr>
-                <p>{{ $menus->resep }}</p>
+                <ul>
+                    @foreach(explode("\n", $menus->resep) as $ingredient)
+                        <li>{{ $ingredient }}</li>
+                    @endforeach
+                </ul>
             </div>
         </div>
         <div class="col">
             <div class="instruction">
                 <h2>Instruction</h2>
                 <hr>
-                <p>{{ $menus->langkah_pembuatan }}</p>
+                <ol>
+                    @foreach(explode("\n", $menus->langkah_pembuatan) as $step)
+                        <li>{{ $step }}</li>
+                    @endforeach
+                </ol>
             </div>
         </div>
     </div>
