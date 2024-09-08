@@ -57,7 +57,7 @@
                   <h5>Terlebih lagi, pada masa itu, keju belum begitu populer dikalangan masayrakat Indonesia. Namun, pak Rachmantio menyadari potensi besar dalam kualitas produk susu lokal dan sangat yakinakan daya 
                       saingnya. Keyakinan ini mulai mendorongnya untuk memulaai produksi keju Gouda, jenis keju yang terkenal dengan cita rasanya yang khas
                     </h5>  
-                    <a href="" class="btn-tentang"> lihat selengkapnya</a>             
+                    <a href="{{ url('/tentang') }}" class="btn-tentang"> lihat selengkapnya</a>             
                 </div>
               </div>
             </div>       
@@ -108,10 +108,10 @@
 
  <!-- Contact Section -->
  <section class="pembelian-section">
-    <h2 class="text-center mt-15">INFORMASI PEMBELIAN</h2>
-    <p class="text-beli">"Anda dapat membeli produk kami dengan datang langsung ke swalayan berikut: 
+    <h4 class="text-center mt-15">INFORMASI PEMBELIAN</h4>
+    <h6 class="text-beli">"Anda dapat membeli produk kami dengan datang langsung ke swalayan berikut: 
         Superindo, Alfamart, Indomaret, Giant, Hypermart, LotteMart, dan Carrefour. Pastikan untuk mengecek ketersediaan produk kami di swalayan terdekat Anda. Kami terus bekerja sama dengan berbagai swalayan besar di seluruh Indonesia untuk memastikan produk-produk kami dapat dengan mudah Anda temukan."
-    </p>
+    </h6>
     <h4 class="text-store">Store</h4>
     <div class="logo-container">
         <div class="logo-box">
@@ -198,15 +198,11 @@
         </div>
     </div>
     <button type="submit" class="btn btn-dark col-md-2">Kirim</button>
-    <script>
-        @if(session('success'))
-                Swal.fire({
-                    title: 'Success!',
-                    text: '{{ session('success') }}',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-            @endif
+    <script> 
+        window.onload = function() {
+            document.body.classList.add('fade-in');
+        };
+
         </script>
                 </form>
             </div>

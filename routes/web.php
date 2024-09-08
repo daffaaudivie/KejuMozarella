@@ -39,6 +39,8 @@ Route::get('/landingpage',[landingpageController::class,"index"]);
 Route::get('/landingpage/create', [landingpageController::class, 'create'])->name('landingpage.create');
 Route::get('/landingpage/edit/{id}', [landingpageController::class, 'edit'])->name('alternatif.edit');
 Route::resource('landingpage', LandingpageController::class);
+Route::get('/tentang', function () {return view('tentang'); // Langsung mengembalikan view
+});
 
 //MenuAdmin
 Route::get('/menu',[menuController::class,"index"]);
