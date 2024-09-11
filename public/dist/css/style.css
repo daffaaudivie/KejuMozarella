@@ -496,6 +496,28 @@ body{
   transform: translateY(0);
 }
 
+.btn-tentang {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f0c14b;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+
+.btn-tentang:hover {
+    color: #f0c14b;
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
 /* end section tentang */
 
 
@@ -571,7 +593,6 @@ body{
 
 /* informasi pembelian */
 .text-beli {
-    font-size: 24px;
     line-height: 130%;
     text-align: center;
     max-width: 1000px;
@@ -618,6 +639,140 @@ body{
     max-height: 100%;
     object-fit: contain; /* Menjaga rasio logo tetap baik */
 }
+
+/* tentang show */
+/* Mengatur margin dan padding dasar */
+.container-tentang{
+    margin-top: 30px;
+}
+.tentang{
+    padding: 20px;
+    display: center;
+    justify-content: center;
+    text-align: left;
+    padding-left: 90px;
+}
+
+.ciri{
+    text-align: center;
+}
+
+img {
+    width: 500px;
+    height: auto;
+    display: block;
+    padding: 0;
+}
+
+.visi{
+    color: #000;
+    text-shadow: none;   
+    font-weight: 400;
+}
+
+
+
+.misi h6{
+    font-weight: bold;
+    text-align: center;
+}
+
+.misi p{
+    text-align: center;
+}
+
+/* Mengatur kolom pada ukuran layar medium dan besar */
+@media (min-width: 768px) {
+    .col-md-6 {
+        width: 33.33%;
+    }
+
+    .col-md-6 {
+        width: 66.67%;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    .row > div {
+        padding: 0 15px;
+    }
+}
+
+/* Mengatur kolom pada ukuran layar kecil */
+@media (max-width: 767px) {
+    .row {
+        display: block;
+    }
+
+    .col-md-6, .col-md-6 {
+        width: 100%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Styling khusus untuk ul dengan class ul-misi */
+.ul-misi {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.ul-misi li {
+    padding-left: 20px;
+    position: relative;
+}
+
+.ul-misi li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* Keyframes untuk animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* dddddddddddddddddddddddd */
+/* Awal elemen tidak terlihat */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Saat elemen terlihat (tampil di viewport) */
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 
 
