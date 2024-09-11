@@ -21,7 +21,7 @@
     }
 
     .img-fluid {
-        max-width: 200px;
+        max-width: 300px;
         height: auto;
     }
 
@@ -61,8 +61,8 @@
                     <th>Nama Menu</th>
                     <th>Foto Menu</th>
                     <th>Deskripsi Menu</th>
-                    <th>Resep</th>
-                    <th>Langkah Pembuatan</th>
+                    <!-- <th>Resep</th>
+                    <th>Langkah Pembuatan</th> -->
                     <th class="aksi">Aksi</th>
                 </tr>
             </thead>
@@ -75,9 +75,10 @@
                             <img src="{{ asset('storage/' . $baris->foto_menu) }}" alt="Menu Image" class="img-fluid">
                         </td>
                         <td>{{ $baris['deskripsi_menu'] }}</td>
-                        <td>{{ $baris['resep'] }}</td>
-                        <td>{{ $baris['langkah_pembuatan'] }}</td>
+                        <!-- <td>{{ $baris['resep'] }}</td>
+                        <td>{{ $baris['langkah_pembuatan'] }}</td> -->
                         <td class="aksi">
+                        <a href="{{ route('menu.detail', $baris->id_menu) }}" class="btn btn-primary text-white">Detail</a>
                             <a href="{{ route('menu.edit', $baris->id_menu) }}" class="btn btn-warning text-white">Edit</a>
                             <form action="{{ route('menu.destroy', $baris->id_menu) }}" method="POST" style="display:inline-block" class="delete-form">
                                 @csrf

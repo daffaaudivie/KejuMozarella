@@ -1,97 +1,91 @@
 @extends('layout.sidebar')
 
-@section('title', 'Data Kreasi Menu')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-        <script>
-        tinymce.init({
-            selector: 'textarea#resep', // Replace this CSS selector to match the placeholder element for TinyMCE
-            plugins: 'code table lists',
-            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
-        });
-        </script>
+@section('title', 'Tambah Kreasi Menu')
 
-
+@section('content')
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h1 class="text-center mb-4">Tambah Foto Kreasi Menu</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-10"> <!-- Membuat form lebih lebar -->
+            <h1 class="text-center mb-4">Tambah Kreasi Menu</h1>
             <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data" id="myForm">
                 @csrf
-                    <label for="nama_menu" class="col-sm-2 col-form-label">Nama Menu</label>
-                    <div class="col-sm-10">
+                
+                <!-- Nama Menu -->
+                <div class="form-group row">
+                    <label for="nama_menu" class="col-md-2 col-form-label text-md-right">Nama Menu</label>
+                    <div class="col-md-10">
                         <input type="text" class="form-control" id="nama_menu" name="nama_menu" required>
                     </div>
-                    <label for="foto_menu" class="col-sm-2 col-form-label">Foto Menu</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="foto_menu" name="foto_menu" accept="image/*" required>
                 </div>
-                <div class="form-group">
-                    <label for="deskripsi_menu" class="col-sm-4 col-form-label">Deskripsi Menu</label>
-                    <div class="col-sm-10">
-                        <!-- Mengganti input menjadi textarea -->
+
+                <!-- Foto Menu -->
+                <div class="form-group row">
+                    <label for="foto_menu" class="col-md-2 col-form-label text-md-right">Foto Menu</label>
+                    <div class="col-md-10">
+                        <input type="file" class="form-control-file" id="foto_menu" name="foto_menu" accept="image/*" required>
+                    </div>
+                </div>
+
+                <!-- Deskripsi Menu -->
+                <div class="form-group row">
+                    <label for="deskripsi_menu" class="col-md-2 col-form-label text-md-right">Deskripsi Menu</label>
+                    <div class="col-md-10">
                         <textarea class="form-control" id="deskripsi_menu" name="deskripsi_menu" rows="4" required></textarea>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="resep" class="col-sm-2 col-form-label">Resep</label>
-                    <div class="col-sm-10">
+                <!-- Resep -->
+                <div class="form-group row">
+                    <label for="resep" class="col-md-2 col-form-label text-md-right">Resep</label>
+                    <div class="col-md-10">
                         <textarea class="form-control" id="resep" name="resep" required></textarea>
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="langkah_pembuatan" class="col-sm-2 col-form-label">Langkah Pembuatan</label>
-                    <div class="col-sm-10">
+                <!-- Langkah Pembuatan -->
+                <div class="form-group row">
+                    <label for="langkah_pembuatan" class="col-md-2 col-form-label text-md-right">Langkah Pembuatan</label>
+                    <div class="col-md-10">
                         <textarea class="form-control" id="langkah_pembuatan" name="langkah_pembuatan" required></textarea>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </form>
-        </div>
-    </div>
-    <div class="mt-4 text-center">
-        <div id="success-alert" class="alert alert-success alert-dismissible fade" role="alert" style="display: none;">
-            Data berhasil ditambahkan!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <!-- Button Simpan -->
+                <div class="form-group row mb-0">
+                    <div class="col-md-10 offset-md-2">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </div>
+
+            </form> <!-- Penutupan tag form yang benar berada di sini -->
         </div>
     </div>
 </div>
+@endsection
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.querySelector('#myForm');
-        const successAlert = document.getElementById('success-alert');
-
-        form.addEventListener('submit', function (e) {
-            successAlert.classList.add('fade');
-            successAlert.style.display = 'block';
-
-            e.preventDefault();
-
-            setTimeout(function () {
-                successAlert.classList.remove('fade');
-                successAlert.style.display = 'none';
-                form.submit();
-            }, 2000);
-        });
-    });
-</script>
-
-<!-- teks editor -->
-<!-- Teks editor TinyMCE -->
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+@section('scripts')
+<script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script>
     tinymce.init({
-        selector: '#resep, #langkah_pembuatan',
-        menubar: false,
-        plugins: 'lists link image charmap preview',
-        toolbar: 'undo redo | formatselect | bold italic backcolor | \
-                 alignleft aligncenter alignright alignjustify | \
-                 bullist numlist outdent indent | removeformat | preview',
-        height: 300
-    });
+    selector: 'textarea#resep, textarea#langkah_pembuatan',
+    plugins: 'code table lists link image preview',
+    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table | link image preview',
+    menubar: false,
+    height: 300,
+    branding: false,
+    setup: function (editor) {
+        editor.on('change', function () {
+            tinymce.triggerSave();  // Sync content when the editor changes
+        });
+    }
+});
+
+document.getElementById('myForm').addEventListener('submit', function (event) {
+    console.log('Form submit event triggered');
+    tinymce.triggerSave();  // Sync the TinyMCE content before submitting the form
+    console.log('TinyMCE content synced');
+
+});
+
 </script>
-
-
+@endsection

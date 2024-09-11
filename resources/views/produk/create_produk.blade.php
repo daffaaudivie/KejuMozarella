@@ -3,21 +3,22 @@
 @section('title', 'Data Kreasi Produk')
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <h1 class="text-center mb-4">Tambah Foto Kreasi Produk</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center mb-4">Tambah Produk</h1>
             <form method="POST" action="{{ route('produk.store') }}" enctype="multipart/form-data" id="myForm">
                 @csrf
-                    <label for="nama_produk" class="col-sm-6 col-form-label">Nama Produk</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
-                    </div>
-                    <label for="foto_produk" class="col-sm-2 col-form-label">Foto Produk</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*" required>
-                    </div>
+                <div class="form-group mb-3">
+                    <label for="nama_produk" class="form-label">Nama Produk</label>
+                    <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
+                </div>
 
-                    <div class="mb-3">
+                <div class="form-group mb-3">
+                    <label for="foto_produk" class="form-label">Foto Produk</label>
+                    <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*" required>
+                </div>
+
+                 <div class="mb-3">
                     <label for="kode_kategori" class="form-label">Nama Kategori</label>
                         <select class="form-select form-control" id="kode_kategori" name="kode_kategori" required>
                         <option value="" selected disabled>Pilih Kategori</option>
@@ -25,25 +26,24 @@
                             <option value="{{ $a->id_kategori }}">{{ $a->nama_kategori }}</option>
                         @endforeach
                         </select>
-                    </div>
+                    </div> 
+                <div class="form-group mb-3">
+                    <label for="harga" class="form-label">Harga Produk</label>
+                    <input type="text" class="form-control" id="harga" name="harga" required>
+                </div>
 
-                    <label for="harga" class="col-sm-4 col-form-label">Harga Produk</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="harga" name="harga" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="deskripsi_produk" class="col-sm-4 col-form-label">Deskripsi Produk</label>
-                        <div class="col-sm-10">
-                            <!-- Mengganti input menjadi textarea -->
-                            <textarea class="form-control" id="deskripsi_produk" name="deskripsi_produk" rows="4" required></textarea>
-                        </div>
-                    </div>
+                <div class="form-group mb-3">
+                    <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
+                    <textarea class="form-control" id="deskripsi_produk" name="deskripsi_produk" rows="4" required></textarea>
+                </div>
                 
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </form>
         </div>
     </div>
+
     <div class="mt-4 text-center">
         <div id="success-alert" class="alert alert-success alert-dismissible fade" role="alert" style="display: none;">
             Data berhasil ditambahkan!

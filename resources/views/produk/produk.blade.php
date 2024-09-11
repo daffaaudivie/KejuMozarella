@@ -46,7 +46,7 @@
                     <th>Foto Produk</th>
                     <th>Kategori Produk</th>
                     <th>Harga</th>
-                    <th>Deskripsi Produk</th>
+                    <!-- <th>Deskripsi Produk</th> -->
                     <th class="aksi">Aksi</th>
                     
                 </tr>
@@ -60,10 +60,11 @@
                             <!-- Menggunakan class 'img-fluid' untuk membuat gambar responsif -->
                             <img src="{{ asset('storage/' . $baris->foto_produk) }}" alt="Produk Image" class="img-fluid" style="max-width: 200px; height: auto; max-width: 300px;">
                         </td>
-                        <td>{{ $baris['kode_kategori'] }}</td>
+                        <td>{{ $baris->kategori->nama_kategori ?? 'Kategori tidak ditemukan' }}</td>
                         <td>{{ $baris['harga'] }}</td>
-                        <td>{{ $baris['deskripsi_produk'] }}</td>
+                        <!-- <td>{{ $baris['deskripsi_produk'] }}</td> -->
                         <td class="aksi">
+                        <a href="{{ route('produk.detail', $baris->id_produk) }}" class="btn btn-primary text-white">Detail</a>
                             <a href="{{ route('produk.edit', $baris->id_produk) }}" class="btn btn-warning text-white">Edit</a>
                             <form action="{{ route('produk.destroy', $baris->id_produk) }}" method="POST" style="display:inline-block" class="delete-form">
                                 @csrf

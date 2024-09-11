@@ -226,7 +226,7 @@
                 <h3>Yuk Hubungi Kami</h3>
                 <form class="contact-form" action="{{ route('pesan.store') }}" method="POST">
                 @csrf
-    <div class="form-group">
+    <!-- <div class="form-group">
         <select class="form-control" name="kategori_pesan" required>
             <option disabled selected>Pilih Kategori</option>
             <option value="Distributor">Ingin Menjadi Distributor</option>
@@ -234,7 +234,10 @@
             <option value="Pembeli">Ingin Membeli Produk</option>
             <option value="Lainnya">Lainnya</option>
         </select>
-    </div>
+    </div> -->
+    <div class="form-group col-md-12">
+            <input type="text" class="form-control" name="kategori_pesan" placeholder="Subjek" required>
+        </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <input type="text" class="form-control" name="nama" placeholder="Nama" required>

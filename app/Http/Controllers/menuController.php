@@ -24,6 +24,8 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+
+        \Log::info($request->all());
         // Validasi input dari form
         $request->validate([
             'nama_menu' => 'required|string|max:255',
@@ -119,4 +121,13 @@ public function update(Request $request, $id_menu)
         
         return view('dashboard', compact('tb_menu'));
     }
+    public function detail($id_menu)
+{
+    // Mengambil data menu berdasarkan id_menu
+    $menu = Menu::findOrFail($id_menu);
+
+    // Mengirim data produk ke view
+    return view('menu.detail_menu', compact('menu'));
+}
+
 }

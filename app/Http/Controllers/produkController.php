@@ -128,4 +128,14 @@ namespace App\Http\Controllers;
             
             return view('dashboard', compact('tb_produk'));
         }
+
+        public function detail($id_produk)
+{
+    // Mengambil data produk berdasarkan id_produk
+            $produk = Produk::findOrFail($id_produk);
+
+            // Mengirim data produk ke view
+            return view('produk.detail_produk', compact('produk'));
+}
+
     }
