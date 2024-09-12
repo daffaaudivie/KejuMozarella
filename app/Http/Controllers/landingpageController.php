@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Landingpage;
 use App\Models\Menu;
+use App\Models\Produk;
 
 class LandingpageController extends Controller
 {
@@ -14,9 +15,12 @@ class LandingpageController extends Controller
     public function index()
     {
         $tb_slider = Landingpage::all();
+        
         return view('landingpage.landingpage', compact('tb_slider'));
 
     }
+
+
 
     public function create()
     {
@@ -93,15 +97,21 @@ class LandingpageController extends Controller
     {
         // Assuming you want to show the first slider image in coba.blade.php
         $tb_slider = Landingpage::first();
-        $menus = Menu::take(8)->get();
-
-        return view('dashboard  ', compact('tb_slider','menus'));
+        $menus = Menu::take(5)->get();
+        $produks = Produk::all();
+        return view('dashboard  ', compact('tb_slider','menus', 'produks'));
     }
 
     public function detailMenu($id)
     {
         $menus = Menu::findOrFail($id);
         return view('detail', compact('menus'));
+    }
+
+    public function detailProduk($id_produk)
+    {
+        $produk = Produk::findOrFail($id_produk);
+        return view('hasil', compact('produk'));
     }
 
 
