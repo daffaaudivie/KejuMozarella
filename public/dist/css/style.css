@@ -886,17 +886,16 @@ img {
 
 /* hasil detail produk */
 /* General styles */
-.container-hasil {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+
 
 /* Product page layout */
 .row-hasil {
+    font-family: Arial, sans-serif;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    padding-left: 70px;
+    padding-top: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -907,6 +906,7 @@ img {
     flex: 1;
     padding: 40px;
 }
+
 
 .img-hasil {
     flex: 1;
@@ -956,10 +956,13 @@ img {
 }
 
 .social-share a {
-    display: inline-block;
+    width: 25px;
+    height: 25px;
+    display: center;
+    align-items: center;
+    justify-content: center;
     margin-right: 10px;
-    padding: 8px 15px;
-    border-radius: 5px;
+    border-radius: 60px;
     color: #fff;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -1016,6 +1019,103 @@ img {
         transform: translateX(0);
     }
 }
+
+/* Styling dasar */
+.bottom-hasil {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.bottom-hasil h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: slideIn 0.8s ease-in-out forwards;
+}
+
+.bottom-hasil p {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInText 1s ease-in-out forwards;
+}
+
+.bottom-hasil h2:last-of-type, 
+.bottom-hasil p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 768px) {
+    .bottom-hasil {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .bottom-hasil h2 {
+        font-size: 20px;
+    }
+
+    .bottom-hasil p {
+        font-size: 14px;
+    }
+}
+
+/* Responsivitas untuk layar sangat kecil (ponsel) */
+@media (max-width: 480px) {
+    .bottom-hasil {
+        padding: 10px;
+    }
+
+    .bottom-hasil h2 {
+        font-size: 18px;
+    }
+
+    .bottom-hasil p {
+        font-size: 12px;
+    }
+}
+
 
 
 
