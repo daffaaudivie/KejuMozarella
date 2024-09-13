@@ -7,6 +7,7 @@
         background: url('{{ asset('storage/' . $menus->foto_menu) }}') no-repeat center center;
         background-size: cover; /* Membuat background menutupi seluruh kolom */
         position: relative;
+        
     }
 
     .bg-image-overlay::after {
