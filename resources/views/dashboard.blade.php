@@ -8,36 +8,9 @@
     <div class="hero-content">
         <h3>KEJU MOZARELLA KHAS MALANG</h1>
         <p>Try our fresh and creamy mozzarella cheese, made locally in Malang. Perfect for every dish!</p>
-        <a href="#" class="btn">Learn More</a>
+        <a href="#dashboard" class="btn">Learn More</a>
     </div>
 </div>
-
-<!-- Tengah Halaman -->
-<div class="pemisah" id="kisah-kami">
-    <h5>All Natural | Made in Singosari | Milk from Alam Hijau Lestari | Tradition Since 1919</h5>
-</div>
-
-<!-- Tentang Perusahaan -->
-<!-- <div class="container company-info">
-    <div class="company" > -->
-        <!-- Kolom teks -->
-        <!-- <div class="company-text">
-            <h2>KISAH KAMI</h2>
-            <h3>Latar Belakang Perusahaan</h3>
-            <p>
-                Keju Mozzarella Khas Malang is a locally owned company that specializes in producing high-quality, fresh mozzarella cheese. Located in the heart of Malang, our company is known for its unique blend of traditional cheese-making techniques and modern production methods.
-            </p>
-            <p>
-                Founded in 2024, we have been committed to providing our customers with the best mozzarella cheese available, using only the finest ingredients sourced locally. Our cheese is made fresh daily and has a rich, creamy texture that melts perfectly, making it a favorite among chefs and home cooks alike.
-            </p>
-        </div> -->
-
-        <!-- Kolom gambar -->
-        <!-- <div class="company-image">
-            <img src="{{ asset('img/kejugas.jpg') }}" alt="Company Image">
-        </div>
-    </div>
-</div> -->
 
 <section id="about">
         <div class="main-container split-layout">
@@ -61,30 +34,34 @@
                 </div>
               </div>
             </div>       
-            
-            <!-- <section class="bagian-pembuat-keju">
-              <p>Di Baros, para pembuat keju kami adalah nyawa dari warisan pembuatan keju kami. Dengan pengalaman selama lebih dari dua dekade di tengah-tengah komunitas kami, mereka memberikan keahlian dan semangat yang tak tertandingi dalam pekerjaan mereka. Yang membedakan para pembuat keju kami adalah komitmen mereka yang teguh untuk mengadaptasi hasil karya yang sesuai dengan selera konsumen Indonesia. Mereka bangga memadukan tradisi dengan inovasi untuk menciptakan keju yang sesuai dengan cita rasa khas komunitas kami.</p>
-              
-              <div class="konten">
-                <div class="gambar fade-in">
-                  <img src="{{ asset('img/broski.jpg')}}" alt="Pembuat Keju" />
-                </div>
-                <div class="teks fade-in">
-                  <p>Cheesemaker kami lahir dari kecintaan sang founder terhadap keju yang diwujudkan dengan membawa ahli keju dari Belanda untuk petukaran ilmu ke warga lokal dan Pak Herman adalah salah satu diantaranya yang berhasil. Dari proses itulah awal terciptanya keju ikonik khas Baros. Selama lebih dari 25 tahun, pak Herman tidak hanya konsisten menjaga kualitas tapi dia berkomitmen mewariskan citarasa resep sehingga keju Baros memiliki kualitas dan cita rasa khas yang terjaga selama puluhan tahun.</p>
-                </div>
-              </div>
-            </section> -->
         </section>
 
-<!-- Tengah Halaman -->
-<div class="pisah">
-    <h5>All Natural | Made in Singosari | Milk from Alam Hijau Lestari | Tradition Since 1919</h5>
-</div>
+{{-- produk kami --}}
+    <h2 class="text-center mt-15">Produk Kami</h2>
+        <p class="text-kita">Kini Tidak Hanya Keju Keahlian Khas KUB juga tercermin dalam kategori produk lainnya.</p>
+            <div class="container-produk">
+                <div class="row-produk">
+                    @foreach($produks as $produk)
+                    <div class="tampilan col-md-6 mb-4">
+                        <a href="{{ url('/dashboard/detailProduk', $produk->id_produk) }}" class="text-decoration-none">
+                            <div class="card-produk bg-dark text-white">
+                                <img src="{{ asset('storage/' . $produk->foto_produk) }}" class="produk-img" alt="{{ $produk->nama_produk }}">
+                                <div class="produk-img-overlay d-flex flex-column justify-content-end">
+                                    <h5 class="produk-title">{{ $produk->nama_produk }}</h5>
+                                    <p class="produk-text">{{ $produk->deskripsi_produk }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+{{-- end produk kami --}}
+
 
 <!-- Kreasi Menu -->
     <div class="container-menu mt-15">
-        <h2 class="text-center mt-15">KREASI MENU</h2>
-        <p class="text-kita">Berikut adalah kreasi menu yang bisa anda buat dengan menggunakan produk keju kami.</p>
+        <h2 class="text-center mt-15">Kreasi Menu</h2>
         <div class="row-menu">
             @foreach($menus as $menu)
             <div class="col-card">
@@ -101,10 +78,10 @@
         </div>
     </div>
 
-    <br><br>
+    {{-- <br><br>
     <div class="pemisah">
     <h5>All Natural | Made in Singosari | Milk from Alam Hijau Lestari | Tradition Since 1919</h5>
-</div>
+</div> --}}
 
  <!-- Contact Section -->
  <section class="pembelian-section">
@@ -205,6 +182,19 @@
         window.onload = function() {
             document.body.classList.add('fade-in');
         };
+
+        window.addEventListener('scroll', function() {
+        const produkItems = document.querySelectorAll('.col-md-6');
+            produkItems.forEach(item => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if(itemPosition < screenPosition) {
+                    item.classList.add('show');
+                }
+            });
+        });
+
 
         </script>
                 </form>

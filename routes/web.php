@@ -37,11 +37,8 @@ Route::get('/landingpage', [LandingpageController::class, 'index']);
 Route::get('/landingpage/create', [LandingpageController::class, 'create'])->name('landingpage.create');
 Route::get('/landingpage/edit/{id}', [LandingpageController::class, 'edit'])->name('alternatif.edit');
 Route::resource('landingpage', LandingpageController::class);
-<<<<<<< HEAD
-=======
 Route::get('/tentang', function () {return view('tentang'); // Langsung mengembalikan view
 });
->>>>>>> 1f3f53d9e11912e46f08996c937cb68ec1bcad4f
 
 // MenuAdmin
 Route::get('/menu', [MenuController::class, 'index']);
@@ -65,11 +62,10 @@ Route::resource('pesan', PesanController::class);
 
 // Dashboard Landing Page
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
-<<<<<<< HEAD
-=======
 Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
+//route view produk
+Route::get('/dashboard/detailProduk/{id}', [LandingpageController::class, 'detailProduk']);
 Route::get('/dashboard_admin', [LandingpageController::class, 'dashboard_admin']);
->>>>>>> 1f3f53d9e11912e46f08996c937cb68ec1bcad4f
 
 // Dashboard Admin Page
 Route::get('/dashboard-admin', [DashboardController::class, 'index'])->name('dashboard.admin');

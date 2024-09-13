@@ -60,7 +60,7 @@
                             <!-- Menggunakan class 'img-fluid' untuk membuat gambar responsif -->
                             <img src="{{ asset('storage/' . $baris->foto_produk) }}" alt="Produk Image" class="img-fluid" style="max-width: 200px; height: auto; max-width: 300px;">
                         </td>
-                        <td>{{ $baris->kategori->nama_kategori ?? 'Kategori tidak ditemukan' }}</td>
+                        <td>{{ $baris->id_kategori->nama_kategori ?? 'Kategori tidak ditemukan' }}</td>
                         <td>{{ $baris['harga'] }}</td>
                         <!-- <td>{{ $baris['deskripsi_produk'] }}</td> -->
                         <td class="aksi">

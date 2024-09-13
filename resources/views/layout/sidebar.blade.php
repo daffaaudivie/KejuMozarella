@@ -83,8 +83,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/landing_page') }}">
-                        <i class="fas fa-home"></i> Landing Page
+
+                    <a class="nav-link" href="{{ url('/landingpage') }}">
+
+                    <i class="fas fa-home"></i> Landing Page 
                     </a>
                 </li>
                 <li class="nav-item">
