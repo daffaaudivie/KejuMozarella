@@ -22,7 +22,7 @@
         }
 
         .navbar {
-            background-color: #9ACE8B; /* Light green background color for the entire top bar */
+            background-color: #3C3D37; 
         }
 
         #embase-header {
@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/landing_page') }}">
+                    <a class="nav-link" href="{{ url('/landingpage') }}">
                         <i class="fas fa-home"></i> Landing Page
                     </a>
                 </li>

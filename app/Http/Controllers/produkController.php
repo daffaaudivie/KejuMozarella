@@ -9,12 +9,21 @@ namespace App\Http\Controllers;
 
     class ProdukController extends Controller
     {
-        public function index()
-        {
-            $tb_produk = Produk::all();
-            $tb_kategori = Kategori::all();
-            return view('produk.produk', compact('tb_produk', 'tb_kategori'));
-        }
+        public function index(Request $request)
+    {
+        // Ambil parameter pencarian dari query string
+        $search = $request->input('search');
+
+        // Ambil data produk dengan pencarian dan pagination
+        $tb_produk = Produk::when($search, function ($query, $search) {
+            return $query->where('nama_produk', 'like', "%{$search}%");
+        })->paginate(5); // Pagination 10 produk per halaman
+
+        // Ambil data kategori
+        $tb_kategori = Kategori::all();
+
+        return view('produk.produk', compact('tb_produk', 'tb_kategori'));
+    }
 
         public function create()
         {

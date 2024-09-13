@@ -17,7 +17,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-md-12 text-right">
-            <a class="btn btn-success" href="{{ route('landingpage.create') }}">Tambah Data +</a>
+            <a class="btn btn-DARK" href="{{ route('landingpage.create') }}">Tambah Data +</a>
         </div>
     </div>
 
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 @foreach($tb_slider as $index => $baris)
-                    <tr class="{{ $index % 2 == 0 ? 'table-success' : 'table-light' }}">
+                    <tr class="{{ $index % 2 == 0 ? 'table-warning' : 'table-light' }}">
                         <td>{{ $baris->id_slider }}</td>
                         <td>
                             <!-- Menggunakan class 'img-fluid' untuk membuat gambar responsif -->

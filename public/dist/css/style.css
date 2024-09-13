@@ -772,6 +772,23 @@ img {
     transform: translateY(0);
 }
 
+.pagination {
+    justify-content: center; /* Mengatur pagination berada di tengah */
+}
+
+.page-link {
+    color: #343a40; /* Warna teks pada pagination */
+}
+
+.page-item.active .page-link {
+    background-color: #343a40; /* Warna background untuk halaman aktif */
+    border-color: #343a40; /* Warna border untuk halaman aktif */
+}
+
+.page-link:hover {
+    background-color: #6c757d; /* Warna hover */
+}
+
 
 
 

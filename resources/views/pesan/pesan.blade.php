@@ -4,14 +4,14 @@
 
 <!-- Menambahkan gaya CSS -->
 <style>
-    .mt-6 {
-        margin-top: 1.5rem; /* Sesuaikan nilai margin-top sesuai kebutuhan */
-        margin-right: 1.5rem;
+    .container{
+        margin-top: 50px;/* Sesuaikan nilai margin-top sesuai kebutuhan */
+        margin-left: 100px;
     }
 
     .table-container {
-        margin-top: 0.5rem; /* Sesuaikan nilai margin-top sesuai kebutuhan */
-        margin-left: 3.0rem;
+        margin-top: 1rem; /* Sesuaikan nilai margin-top sesuai kebutuhan */
+        margin-left: 100px;
     }
     .aksi {
         white-space: nowrap;
@@ -24,7 +24,7 @@
     }
 </style>
 
-<div class="container mt-6">
+<div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
             <h1 style="font-size: 30px;">Data Pesan Masuk</h1>
@@ -47,7 +47,7 @@
                     <th>Email</th>
                     <th>Nomor</th>
                     <!-- <th>Nama Perusahaan</th> -->
-                    <th>Pesan</th>
+                    <!-- <th>Pesan</th> -->
                     <th class="aksi">Aksi</th>
                 </tr>
             </thead>
@@ -60,8 +60,9 @@
                         <td>{{ $baris['email'] }}</td>
                         <td>{{ $baris['nomor'] }}</td>
                         <!-- <td>{{ $baris['nama_perusahaan'] }}</td> -->
-                        <td>{{ $baris['pesan'] }}</td>
+                        <!-- <td>{{ $baris['pesan'] }}</td> -->
                         <td class="aksi">
+                        <a href="{{ route('pesan.detail', $baris->id_pesan) }}" class="btn btn-info">Detail</a>
                             <form action="{{ route('pesan.destroy', $baris->id_pesan) }}" method="POST" style="display:inline-block" class="delete-form">
                                 @csrf
                                 @method('DELETE')
@@ -73,6 +74,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $tb_pesan->onEachSide(1)->links('pagination::bootstrap-4') }}
+        </div>
     </div>
 </div>
 

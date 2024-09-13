@@ -7,10 +7,29 @@ use App\Models\Pesan; // Pastikan model Pesan sudah dibuat
 class PesanController extends Controller
 {
     // Menampilkan semua pesan
-    public function index()
+    // public function index()
+    // {
+    //     $tb_pesan = Pesan::all(); // Ambil semua data pesan
+    //     return view('pesan.pesan', compact('tb_pesan')); // Tampilkan view pesan.blade.php
+    // }
+    public function index(Request $request){
+        $search = $request->input('search');
+    
+        // Jika ada pencarian, filter berdasarkan nama menu
+        $tb_pesan = Pesan::when($search, function($query, $search) {
+            return $query->where('pesan', 'like', '%' . $search . '%');
+        })->paginate(5); // Batas 10 item per halaman
+    
+        return view('pesan.pesan', compact('tb_pesan', 'search'));
+        }
+
+    public function detail($id_pesan)
     {
-        $tb_pesan = Pesan::all(); // Ambil semua data pesan
-        return view('pesan.pesan', compact('tb_pesan')); // Tampilkan view pesan.blade.php
+        // Ambil data pesan berdasarkan id_pesan
+        $pesan = Pesan::findOrFail($id_pesan);
+
+        // Kirim data pesan ke view detail_pesan.blade.php
+        return view('pesan.detail_pesan', compact('pesan'));
     }
 
     // Menyimpan pesan baru

@@ -1,44 +1,65 @@
 @extends('layout.sidebar')
 
-@section('title', 'Data Kreasi Produk')
+@section('title', 'Tambah Produk')
 
-<div class="container mt-5">
+@section('content')
+<div class="container mt-1">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10"> <!-- Membuat form lebih lebar -->
             <h1 class="text-center mb-4">Tambah Produk</h1>
             <form method="POST" action="{{ route('produk.store') }}" enctype="multipart/form-data" id="myForm">
                 @csrf
-                <div class="form-group mb-3">
-                    <label for="nama_produk" class="form-label">Nama Produk</label>
-                    <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
+
+                <!-- Nama Produk -->
+                <div class="form-group row">
+                    <label for="nama_produk" class="col-md-2 col-form-label text-md-start">Nama Produk</label>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
+                    </div>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="foto_produk" class="form-label">Foto Produk</label>
-                    <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*" required>
+                <!-- Foto Produk -->
+                <div class="form-group row">
+                    <label for="foto_produk" class="col-md-3 col-form-label text-md-start">Foto Produk</label>
+                    <div class="col-md-12">
+                        <input type="file" class="form-control" id="foto_produk" name="foto_produk" accept="image/*" required>
+                    </div>
                 </div>
 
-                 <div class="mb-3">
-                    <label for="kode_kategori" class="form-label">Nama Kategori</label>
+                <!-- Kategori Produk -->
+                <div class="form-group row">
+                    <label for="kode_kategori" class="col-md-3 col-form-label text-md-start">Nama Kategori</label>
+                    <div class="col-md-12">
                         <select class="form-select form-control" id="kode_kategori" name="kode_kategori" required>
-                        <option value="" selected disabled>Pilih Kategori</option>
-                        @foreach($tb_kategori as $a)
-                            <option value="{{ $a->id_kategori }}">{{ $a->nama_kategori }}</option>
-                        @endforeach
+                            <option value="" selected disabled>Pilih Kategori</option>
+                            @foreach($tb_kategori as $a)
+                                <option value="{{ $a->id_kategori }}">{{ $a->nama_kategori }}</option>
+                            @endforeach
                         </select>
-                    </div> 
-                <div class="form-group mb-3">
-                    <label for="harga" class="form-label">Harga Produk</label>
-                    <input type="text" class="form-control" id="harga" name="harga" required>
+                    </div>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="deskripsi_produk" class="form-label">Deskripsi Produk</label>
-                    <textarea class="form-control" id="deskripsi_produk" name="deskripsi_produk" rows="4" required></textarea>
+                <!-- Harga Produk -->
+                <div class="form-group row">
+                    <label for="harga" class="col-md-3 col-form-label text-md-start">Harga Produk</label>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" id="harga" name="harga" placeholder="Tulis Angka Saja" required>
+                    </div>
                 </div>
-                
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+
+                <!-- Deskripsi Produk -->
+                <div class="form-group row">
+                    <label for="deskripsi_produk" class="col-md-3 col-form-label text-md-start">Deskripsi Produk</label>
+                    <div class="col-md-12">
+                        <textarea class="form-control" id="deskripsi_produk" name="deskripsi_produk" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Button Simpan -->
+                <div class="form-group row">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -51,8 +72,29 @@
         </div>
     </div>
 </div>
+@endsection
 
-<!-- <script>
+@section('scripts')
+<script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#deskripsi_produk',
+        plugins: 'code table lists link image preview',
+        toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table | link image preview',
+        menubar: false,
+        height: 300,
+        branding: false,
+        setup: function (editor) {
+            editor.on('change', function () {
+                tinymce.triggerSave(); // Sync content when the editor changes
+            });
+        }
+    });
+
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+        tinymce.triggerSave(); // Sync the TinyMCE content before submitting the form
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.querySelector('#myForm');
         const successAlert = document.getElementById('success-alert');
@@ -70,4 +112,5 @@
             }, 2000);
         });
     });
-</script> -->
+</script>
+@endsection

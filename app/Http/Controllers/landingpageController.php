@@ -51,7 +51,7 @@ class LandingpageController extends Controller
     public function edit($id)
     {
         $landingpage = Landingpage::findOrFail($id);
-        return view('landingpage.edit', compact('landingpage'));
+        return view('landingpage.edit_landingpage', compact('landingpage'));
     }
 
     /**

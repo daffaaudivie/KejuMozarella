@@ -6,7 +6,6 @@
 <style>
     .container {
         margin-top: 2rem;
-        margin-left: 3rem;
     }
 
     .img-container {
@@ -15,32 +14,44 @@
     }
 
     .img-fluid {
-        max-width: 100px;
-        height: 100px;
+        max-width: 250px; /* Menyesuaikan ukuran gambar menjadi lebih kecil */
+        height: auto;
+    }
+
+    .table {
+        font-size: 1rem; /* Mengatur ukuran font pada tabel */
+        width: 100%; /* Memastikan tabel menggunakan seluruh lebar kolom */
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
     }
 
     .btn-back {
         margin-top: 2rem;
-        margin-right: 1.5rem;
     }
-    .baris{
-        padding: 300px;
+
+    .text-right {
+        text-align: right;
     }
 </style>
 
 @section('content')
 <div class="container">
-    <h1 class="text-center">Detail Menu</h1>
+    <h1 class="text-center mb-4">Detail Menu</h1>
 
     <div class="row">
-        <div class="col-md-6">
+        <!-- Kolom Foto -->
+        <div class="col-md-4">
             <div class="img-container">
-                <img src="{{ asset('storage/' . $menu->foto_menu) }}" alt="Foto Menu" class="img-fluid" style="max-width: 350px; height: auto;" >
+                <img src="{{ asset('storage/' . $menu->foto_menu) }}" alt="Foto Menu" class="img-fluid">
             </div>
         </div>
-        <div class="col-md-6">
+
+        <!-- Kolom Detail -->
+        <div class="col-md-8">
             <table class="table table-bordered">
-                <tr class="baris col">
+                <tr>
                     <th>ID Menu</th>
                     <td>{{ $menu->id_menu }}</td>
                 </tr>
@@ -50,7 +61,7 @@
                 </tr>
                 <tr>
                     <th>Deskripsi Menu</th>
-                    <td>{{ $menu->deskripsi_menu }}</td>
+                    <td>{!! $menu->deskripsi_menu !!}</td>
                 </tr>
                 <tr>
                     <th>Resep</th>
@@ -58,7 +69,6 @@
                 </tr>
                 <tr>
                     <th>Langkah Pembuatan</th>
-                    
                     <td>{!! $menu->langkah_pembuatan !!}</td>
                 </tr>
             </table>

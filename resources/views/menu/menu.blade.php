@@ -4,56 +4,103 @@
 
 <!-- Menambahkan gaya CSS -->
 <style>
-    .mt-6 {
-        margin-top: 1.5rem;
-        margin-right: 1.5rem;
-        max-width: 100%;
+    .container {
+        margin-top: 0.2rem; /* Kurangi jarak dari atas */
     }
 
     .table-container {
-        margin-top: 0.5rem;
-        margin-left: 3.0rem;
-        max-width: 100%;
+        margin-top: 0rem; /* Kurangi jarak tabel dari tombol */
+    }
+
+    .search-container {
+        margin-bottom: 1rem;
     }
 
     table.table {
         width: 100%;
+        table-layout: fixed; /* Agar kolom memiliki lebar tetap yang proporsional */
     }
 
     .img-fluid {
-        max-width: 300px;
+        max-width: 100px; /* Ukuran gambar lebih kecil */
         height: auto;
     }
 
-    .table-bordered td, 
+    .table-bordered td,
     .table-bordered th {
         vertical-align: middle;
     }
 
-    .aksi {
-        white-space: nowrap;
-        width: 150px;
+    .table td:nth-child(1), .table th:nth-child(1) {
+        width: 50px; /* Lebar kolom ID lebih kecil */
+    }
+    .table td:nth-child(2), .table th:nth-child(2) {
+        width: 100px; /* Lebar kolom ID 10ebih kecil */
+    }
+    .table td:nth-child(3), .table th:nth-child(3) {
+        width: 150px; /* Lebar kolom ID 10ebih kecil */
+    }
+    .table td:nth-child(4), .table th:nth-child(4) {
+        width: 400px; /* Lebar kolom ID 10ebih kecil */
+        word-break: break-word;
+    }
+
+    .table td:nth-child(5), .table th:nth-child(5) {
+        width: 200px; /* Lebar kolom Aksi lebih besar */
     }
 
     .aksi .btn {
-        display: inline-block;
-        margin-right: 0px;
+        margin-right: 2px; /* Spasi antar tombol */
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .title-container {
+        text-align: center; /* Posisi teks di tengah */
+        margin-bottom: 1.5rem;
+    }
+
+    .title-container h1 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    .action-container {
+        text-align: right;
+        margin-bottom: 1rem;
     }
 </style>
 
-<div class="container mt-6">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 style="font-size: 30px;">Kreasi Menu</h1>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-md-12 text-right">
-            <a class="btn btn-dark" href="{{ route('menu.create') }}">Tambah Data +</a>
-        </div>
+
+@section('content')
+<div class="container col-lg-12">
+    <!-- Judul di tengah -->
+    <div class="title-container">
+        <h1>Kreasi Menu</h1>
     </div>
 
-    <div class="table-container col-md-12">
+    <!-- Form Pencarian -->
+    
+
+    <!-- Tombol Tambah Data di kanan -->
+    <!-- Form Pencarian dan Tombol Tambah Data di kanan -->
+        <div class="action-container d-flex justify-content-between align-items-center mb-3">
+            <form action="{{ route('menu.index') }}" method="GET" class="form-inline d-flex">
+                <div class="input-group">
+                    <input type="text" name="search" class="form-control" placeholder="Cari Nama Menu" value="{{ request()->input('search') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Cari</button>
+                    </div>
+                </div>
+            </form>
+            <a class="btn btn-dark" href="{{ route('menu.create') }}">Tambah Data +</a>
+        </div>
+
+
+    <!-- Tabel -->
+    <div class="table-container">
         <table class="table table-bordered">
             <thead>
                 <tr class="text-center">
@@ -61,8 +108,6 @@
                     <th>Nama Menu</th>
                     <th>Foto Menu</th>
                     <th>Deskripsi Menu</th>
-                    <!-- <th>Resep</th>
-                    <th>Langkah Pembuatan</th> -->
                     <th class="aksi">Aksi</th>
                 </tr>
             </thead>
@@ -74,16 +119,13 @@
                         <td>
                             <img src="{{ asset('storage/' . $baris->foto_menu) }}" alt="Menu Image" class="img-fluid">
                         </td>
-                        <td>{{ $baris['deskripsi_menu'] }}</td>
-                        <!-- <td>{{ $baris['resep'] }}</td>
-                        <td>{{ $baris['langkah_pembuatan'] }}</td> -->
-                        <td class="aksi">
-                        <a href="{{ route('menu.detail', $baris->id_menu) }}" class="btn btn-primary text-white">Detail</a>
-                            <a href="{{ route('menu.edit', $baris->id_menu) }}" class="btn btn-warning text-white">Edit</a>
+                        <td>{!! $baris->deskripsi_menu !!}</td>
+                        <td class="aksi text-center">
+                            <a href="{{ route('menu.detail', $baris->id_menu) }}" class="btn btn-primary">Detail</a>
+                            <a href="{{ route('menu.edit', $baris->id_menu) }}" class="btn btn-warning">Edit</a>
                             <form action="{{ route('menu.destroy', $baris->id_menu) }}" method="POST" style="display:inline-block" class="delete-form">
                                 @csrf
                                 @method('DELETE')
-                                <!-- Tombol hapus yang bukan type submit -->
                                 <button type="button" class="btn btn-danger delete-btn">Hapus</button>
                             </form>
                         </td>
@@ -91,6 +133,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center">
+            {{ $tb_menu->onEachSide(1)->links('pagination::bootstrap-4') }}
+        </div>
     </div>
 </div>
 
@@ -109,7 +156,7 @@
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6', 
+                cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Ya, hapus!',
                 cancelButtonText: 'Batal'
             }).then((result) => {
@@ -125,3 +172,4 @@
         });
     });
 </script>
+@endsection

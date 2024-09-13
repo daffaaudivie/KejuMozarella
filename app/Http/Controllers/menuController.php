@@ -8,15 +8,23 @@ use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
-    public function index()
-    {
-        $tb_menu = Menu::all();
-        return view('menu.menu', compact('tb_menu'));
+    public function index(Request $request){
+    $search = $request->input('search');
+
+    // Jika ada pencarian, filter berdasarkan nama menu
+    $tb_menu = Menu::when($search, function($query, $search) {
+        return $query->where('nama_menu', 'like', '%' . $search . '%');
+    })->paginate(5); // Batas 10 item per halaman
+
+    return view('menu.menu', compact('tb_menu', 'search'));
     }
+
 
     public function create()
     {
         return view('menu.create_menu');
+
+        
     }
 
     /**
@@ -30,9 +38,9 @@ class MenuController extends Controller
         $request->validate([
             'nama_menu' => 'required|string|max:255',
             'foto_menu' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'deskripsi_menu' => 'required|string',
-            'resep' => 'required|string',
-            'langkah_pembuatan' => 'required|string',
+            'deskripsi_menu' => 'nullable|required|string',
+            'resep' => 'nullable|string',
+            'langkah_pembuatan' => 'nullable|string',
         ]);
 
         // Proses upload foto
