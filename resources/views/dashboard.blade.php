@@ -42,7 +42,7 @@
             <div class="container-produk">
                 <div class="row-produk">
                     @foreach($produks as $produk)
-                    <div class="col-md-6 mb-4">
+                    <div class="tampilan col-md-6 mb-4">
                         <a href="{{ url('/dashboard/detailProduk', $produk->id_produk) }}" class="text-decoration-none">
                             <div class="card-produk bg-dark text-white">
                                 <img src="{{ asset('storage/' . $produk->foto_produk) }}" class="produk-img" alt="{{ $produk->nama_produk }}">

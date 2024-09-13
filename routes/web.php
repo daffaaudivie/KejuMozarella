@@ -50,8 +50,8 @@ Route::get('/menu/{id_menu}/detail', [MenuController::class, 'detail'])->name('m
 // ProdukPageAdmin
 Route::get('/produk', [ProdukController::class, 'index']);
 Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
-Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk.store');
 Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
+Route::resource('produk', ProdukController::class);
 Route::get('/produk/{id_produk}/detail', [ProdukController::class, 'detail'])->name('produk.detail');
 
 // PesanPageAdmin
