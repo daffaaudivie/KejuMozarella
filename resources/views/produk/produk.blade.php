@@ -115,7 +115,7 @@
                         <td>
                             <img src="{{ asset('storage/' . $baris->foto_produk) }}" alt="Produk Image" class="img-fluid">
                         </td>
-                        <td>{{ $baris->kategori->nama_kategori ?? 'Kategori tidak ditemukan' }}</td>
+                        <td>{{ $baris->id_kategori->nama_kategori ?? 'Kategori tidak ditemukan' }}</td>
                         <td>{{ $baris['harga'] }}</td>
                         <td class="aksi text-center">
                             <a href="{{ route('produk.detail', $baris->id_produk) }}" class="btn btn-primary">Detail</a>

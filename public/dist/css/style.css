@@ -297,7 +297,7 @@ body{
 
 /* section tentang */
 #about {
-    background: linear-gradient(to right, #ffeac4, #ffbe44); 
+    background: #D9D9D9; 
     padding: 50px 0; 
     color: #000000; 
 }
@@ -772,6 +772,7 @@ img {
     transform: translateY(0);
 }
 
+<<<<<<< HEAD
 .pagination {
     justify-content: center; /* Mengatur pagination berada di tengah */
 }
@@ -791,6 +792,252 @@ img {
 
 
 
+=======
+/* produk dashboard */
+.container-produk {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.row-produk {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.tampilan {
+    flex: 1 1 20%; 
+    max-width: calc(20% - 20px);
+    box-sizing: border-box;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tampilan:hover {
+    transform: scale(1.05); /* Animasi zoom in ketika hover */
+}
+
+.card-produk {
+    width: 280px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.produk-img {
+    width: 280px;
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: filter 0.3s ease-in-out;
+}
+
+.card-produk:hover .produk-img {
+    filter: brightness(1);
+}
+
+.produk-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.produk-text {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+    text-align: center;
+    padding: 10px;
+}
+
+.produk-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.card-produk:hover .produk-img-overlay {
+    opacity: 1;
+}
+
+.tampilan {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tampilan.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsiveness */
+@media screen and (max-width: 1200px) {
+    .tampilan {
+        flex: 1 1 calc(33.33% - 20px); /* Menjadi 3 produk per baris */
+        max-width: calc(33.33% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tampilan {
+        flex: 1 1 calc(50% - 20px); /* Menjadi 2 produk per baris */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .tampilan {
+        flex: 1 1 100%; /* Menjadi 1 produk per baris */
+        max-width: 100%;
+    }
+}
+
+/* hasil detail produk */
+/* General styles */
+.container-hasil {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Product page layout */
+.row-hasil {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.hasil {
+    flex: 1;
+    padding: 40px;
+}
+
+.img-hasil {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Typography */
+.hasil h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hasil h2 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+.hasil p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Image styles */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    animation: fadeInRight 1s ease-out;
+}
+
+.img-fluid:hover {
+    transform: scale(1.05);
+}
+
+/* Social share buttons */
+.social-share {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.social-share a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-share a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .row-hasil {
+        flex-direction: column-reverse;
+    }
+    
+    .hasil, .img-hasil {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .hasil h1 {
+        font-size: 2em;
+    }
+    
+    .hasil h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+>>>>>>> 31aa0720fc13152ddd7d63ce4ce72e90d3a93333
 
 
 

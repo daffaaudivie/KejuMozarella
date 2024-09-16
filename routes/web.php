@@ -37,7 +37,10 @@ Route::get('/landingpage', [LandingpageController::class, 'index']);
 Route::get('/landingpage/create', [LandingpageController::class, 'create'])->name('landingpage.create');
 Route::get('/landingpage/edit/{id}', [LandingpageController::class, 'edit'])->name('alternatif.edit');
 Route::resource('landingpage', LandingpageController::class);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31aa0720fc13152ddd7d63ce4ce72e90d3a93333
 Route::get('/tentang', function () {return view('tentang'); // Langsung mengembalikan view
 });
 
@@ -64,11 +67,19 @@ Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name
 
 // Dashboard Landing Page
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 31aa0720fc13152ddd7d63ce4ce72e90d3a93333
 Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
+//route view produk
+Route::get('/dashboard/detailProduk/{id}', [LandingpageController::class, 'detailProduk']);
 Route::get('/dashboard_admin', [LandingpageController::class, 'dashboard_admin']);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31aa0720fc13152ddd7d63ce4ce72e90d3a93333
 
 // Dashboard Admin Page
 Route::get('/dashboard-admin', [DashboardController::class, 'index'])->name('dashboard.admin');

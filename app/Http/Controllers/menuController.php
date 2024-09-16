@@ -130,12 +130,12 @@ public function update(Request $request, $id_menu)
         return view('dashboard', compact('tb_menu'));
     }
     public function detail($id_menu)
-{
-    // Mengambil data menu berdasarkan id_menu
-    $menu = Menu::findOrFail($id_menu);
+    {
+        // Mengambil data menu berdasarkan id_menu
+        $menu = Menu::findOrFail($id_menu);
 
-    // Mengirim data produk ke view
-    return view('menu.detail_menu', compact('menu'));
-}
+        // Mengirim data produk ke view
+        return view('menu.detail_menu', compact('menu'));
+    }
 
 }

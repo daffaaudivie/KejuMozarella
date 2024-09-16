@@ -35,6 +35,7 @@ namespace App\Http\Controllers;
         /**
          * Store a newly created resource in storage.
          */
+
         public function store(Request $request)
         {
             // Validasi input dari form
@@ -58,15 +59,19 @@ namespace App\Http\Controllers;
             }
 
             // Simpan data ke database
-            Produk::create([
-                'nama_produk' => $request->nama_produk,
-                'foto_produk' => $fotoPath, // Simpan path gambar yang sudah diupload
-                'kode_kategori' => $request->kode_kategori,
-                'harga' => $request->harga,
-                'deskripsi_produk' => $request->deskripsi_produk,
-            ]);
-
-            return redirect()->route('produk.index')->with('success', 'Berhasil Menyimpan Data');
+            try {
+                Produk::create([
+                    'nama_produk' => $request->nama_produk,
+                    'foto_produk' => $fotoPath, // Pastikan foto sudah benar tersimpan
+                    'kode_kategori' => $request->kode_kategori,
+                    'harga' => $request->harga,
+                    'deskripsi_produk' => $request->deskripsi_produk,
+                ]);
+                return redirect()->route('produk.index')->with('success', 'Berhasil Menyimpan Data');
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Gagal Menyimpan Data: ' . $e->getMessage());
+            }
+            
         }
 
         public function edit($id_produk)
@@ -138,13 +143,15 @@ namespace App\Http\Controllers;
             return view('dashboard', compact('tb_produk'));
         }
 
-        public function detail($id_produk)
-{
-    // Mengambil data produk berdasarkan id_produk
-            $produk = Produk::findOrFail($id_produk);
+        // public function detail_produk($id_produk)
+        // {
+    
+        //     $produk = Produk::findOrFail($id_produk);
 
-            // Mengirim data produk ke view
-            return view('produk.detail_produk', compact('produk'));
-}
+        //     // Mengirim data produk ke view
+        //     return view('produk.detail_produk', compact('produk'));
+        // }
+    
+    
 
     }
