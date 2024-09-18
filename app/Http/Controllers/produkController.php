@@ -46,7 +46,7 @@ namespace App\Http\Controllers;
                 'foto_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'kode_kategori' => 'required|numeric',
                 'harga' => 'required|numeric',
-                'deskripsi_produk' => 'required|string',
+                'deskripsi_produk' => 'nullable|string',
             ]);
             
 
