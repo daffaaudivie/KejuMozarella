@@ -2,14 +2,14 @@
 
 @section('title', 'Data Kreasi Menu')
 
-<!-- Menambahkan gaya CSS -->
+<!--CSS -->
 <style>
     .container {
-        margin-top: 0.2rem; /* Kurangi jarak dari atas */
+        margin-top: 0.2rem; 
     }
 
     .table-container {
-        margin-top: 0rem; /* Kurangi jarak tabel dari tombol */
+        margin-top: 0rem; 
     }
 
     .search-container {
@@ -18,11 +18,11 @@
 
     table.table {
         width: 100%;
-        table-layout: fixed; /* Agar kolom memiliki lebar tetap yang proporsional */
+        table-layout: fixed; 
     }
 
     .img-fluid {
-        max-width: 100px; /* Ukuran gambar lebih kecil */
+        max-width: 100px; 
         height: auto;
     }
 
@@ -32,25 +32,25 @@
     }
 
     .table td:nth-child(1), .table th:nth-child(1) {
-        width: 50px; /* Lebar kolom ID lebih kecil */
+        width: 50px; 
     }
     .table td:nth-child(2), .table th:nth-child(2) {
-        width: 100px; /* Lebar kolom ID 10ebih kecil */
+        width: 100px; 
     }
     .table td:nth-child(3), .table th:nth-child(3) {
-        width: 150px; /* Lebar kolom ID 10ebih kecil */
+        width: 150px; 
     }
     .table td:nth-child(4), .table th:nth-child(4) {
-        width: 400px; /* Lebar kolom ID 10ebih kecil */
+        width: 400px; 
         word-break: break-word;
     }
 
     .table td:nth-child(5), .table th:nth-child(5) {
-        width: 200px; /* Lebar kolom Aksi lebih besar */
+        width: 200px; 
     }
 
     .aksi .btn {
-        margin-right: 2px; /* Spasi antar tombol */
+        margin-right: 2px; 
     }
 
     .text-right {
@@ -58,7 +58,7 @@
     }
 
     .title-container {
-        text-align: center; /* Posisi teks di tengah */
+        text-align: center; 
         margin-bottom: 1.5rem;
     }
 
@@ -82,10 +82,6 @@
     </div>
 
     <!-- Form Pencarian -->
-    
-
-    <!-- Tombol Tambah Data di kanan -->
-    <!-- Form Pencarian dan Tombol Tambah Data di kanan -->
         <div class="action-container d-flex justify-content-between align-items-center mb-3">
             <form action="{{ route('menu.index') }}" method="GET" class="form-inline d-flex">
                 <div class="input-group">
@@ -145,10 +141,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    // Menggunakan SweetAlert2 untuk konfirmasi hapus data
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function(event) {
-            const form = this.closest('form'); // Dapatkan form terdekat
+            const form = this.closest('form'); 
 
             Swal.fire({
                 title: 'Apakah Anda yakin?',

@@ -77,13 +77,13 @@
         branding: false,
         setup: function (editor) {
             editor.on('change', function () {
-                tinymce.triggerSave(); // Sync content when the editor changes
+                tinymce.triggerSave(); 
             });
         }
     });
 
     document.getElementById('myForm').addEventListener('submit', function (event) {
-        tinymce.triggerSave(); // Sync the TinyMCE content before submitting the form
+        tinymce.triggerSave(); 
     });
 </script>
 @endsection

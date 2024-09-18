@@ -83,15 +83,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-<<<<<<< HEAD
+
                     <a class="nav-link" href="{{ url('/landingpage') }}">
                         <i class="fas fa-home"></i> Landing Page
-=======
 
-                    <a class="nav-link" href="{{ url('/landingpage') }}">
+                    <a class="nav-link" href="{{ url('/tentang_admin') }}">
 
-                    <i class="fas fa-home"></i> Landing Page 
->>>>>>> 31aa0720fc13152ddd7d63ce4ce72e90d3a93333
+                    <i class="fas fa-home"></i> Tentang Kami
+
                     </a>
                 </li>
                 <li class="nav-item">

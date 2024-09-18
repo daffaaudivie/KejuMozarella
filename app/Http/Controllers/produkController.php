@@ -25,6 +25,7 @@ namespace App\Http\Controllers;
         return view('produk.produk', compact('tb_produk', 'tb_kategori'));
     }
 
+
         public function create()
         {
             // Ambil data kategori dari tabel tb_kategori
@@ -152,6 +153,11 @@ namespace App\Http\Controllers;
         //     return view('produk.detail_produk', compact('produk'));
         // }
     
-    
+        public function detail($id_produk)
+        {
+            $produk = Produk::findOrFail($id_produk);
+
+            return view('produk.detail_produk', compact('produk'));
+        }
 
     }

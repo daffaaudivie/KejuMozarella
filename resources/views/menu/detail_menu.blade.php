@@ -14,13 +14,12 @@
     }
 
     .img-fluid {
-        max-width: 250px; /* Menyesuaikan ukuran gambar menjadi lebih kecil */
-        height: auto;
+        max-width: 250px; 
     }
 
     .table {
-        font-size: 1rem; /* Mengatur ukuran font pada tabel */
-        width: 100%; /* Memastikan tabel menggunakan seluruh lebar kolom */
+        font-size: 1rem; 
+        width: 100%; 
     }
 
     .table th, .table td {

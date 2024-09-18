@@ -1,15 +1,15 @@
 @extends('layout.sidebar')
 
-@section('title', 'Data Kreasi Produk')
+@section('title', 'Data Tentang Kami')
 
-<!-- Menambahkan gaya CSS -->
+<!--CSS -->
 <style>
     .container {
-        margin-top: 0.2rem; /* Kurangi jarak dari atas */
+        margin-top: 0.2rem; 
     }
 
     .table-container {
-        margin-top: 0rem; /* Kurangi jarak tabel dari tombol */
+        margin-top: 0rem; 
     }
 
     .search-container {
@@ -18,11 +18,11 @@
 
     table.table {
         width: 100%;
-        table-layout: fixed; /* Agar kolom memiliki lebar tetap yang proporsional */
+        table-layout: fixed; 
     }
 
     .img-fluid {
-        max-width: 100px; /* Ukuran gambar lebih kecil */
+        max-width: 100px; 
         height: auto;
     }
 
@@ -32,26 +32,22 @@
     }
 
     .table td:nth-child(1), .table th:nth-child(1) {
-        width: 50px; /* Lebar kolom ID lebih kecil */
+        width: 50px; 
     }
     .table td:nth-child(2), .table th:nth-child(2) {
-        width: 100px; /* Lebar kolom Nama Produk lebih besar */
+        width: 150px; 
     }
     .table td:nth-child(3), .table th:nth-child(3) {
-        width: 100px; /* Lebar kolom Foto Produk */
+        width: 400px; 
+        word-break: break-word;
     }
+
     .table td:nth-child(4), .table th:nth-child(4) {
-        width: 100px; /* Lebar kolom Kategori Produk */
-    }
-    .table td:nth-child(5), .table th:nth-child(5) {
-        width: 100px; /* Lebar kolom Harga */
-    }
-    .table td:nth-child(6), .table th:nth-child(6) {
-        width: 150px; /* Lebar kolom Aksi lebih besar */
+        width: 200px; 
     }
 
     .aksi .btn {
-        margin-right: 2px; /* Spasi antar tombol */
+        margin-right: 2px; 
     }
 
     .text-right {
@@ -59,7 +55,7 @@
     }
 
     .title-container {
-        text-align: center; /* Posisi teks di tengah */
+        text-align: center; 
         margin-bottom: 1.5rem;
     }
 
@@ -75,23 +71,23 @@
 </style>
 
 @section('content')
-<div class="container">
+<div class="container col-lg-12">
     <!-- Judul di tengah -->
     <div class="title-container">
-        <h1>Data Produk</h1>
+        <h1>Data Tentang Kami</h1>
     </div>
 
-    <!-- Form Pencarian dan Tombol Tambah Data di kanan -->
+    <!-- Form Pencarian -->
     <div class="action-container d-flex justify-content-between align-items-center mb-3">
-        <form action="{{ route('produk.index') }}" method="GET" class="form-inline d-flex">
+        <form action="{{ route('tentang_admin.index') }}" method="GET" class="form-inline d-flex">
             <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Cari Nama Produk" value="{{ request()->input('search') }}">
+                <input type="text" name="search" class="form-control" placeholder="Cari Deskripsi" value="{{ request()->input('search') }}">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit">Cari</button>
                 </div>
             </div>
         </form>
-        <a class="btn btn-dark" href="{{ route('produk.create') }}">Tambah Data +</a>
+        <a class="btn btn-dark" href="{{ route('tentang_admin.create') }}">Tambah Data +</a>
     </div>
 
     <!-- Tabel -->
@@ -100,27 +96,23 @@
             <thead>
                 <tr class="text-center">
                     <th>ID</th>
-                    <th>Nama Produk</th>
-                    <th>Foto Produk</th>
-                    <th>Kategori Produk</th>
-                    <th>Harga</th>
+                    <th>Foto</th>
+                    <th>Deskripsi</th>
                     <th class="aksi">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($tb_produk as $index => $baris)
+                @foreach($tb_tentang as $index => $baris)
                     <tr class="{{ $index % 2 == 0 ? 'table-warning' : 'table-light' }}">
-                        <td>{{ $baris['id_produk'] }}</td>
-                        <td>{{ $baris['nama_produk'] }}</td>
+                        <td>{{ $baris['id_tentang'] }}</td>
                         <td>
-                            <img src="{{ asset('storage/' . $baris->foto_produk) }}" alt="Produk Image" class="img-fluid">
+                            <img src="{{ asset('storage/' . $baris->foto_tentang) }}" alt="Tentang Image" class="img-fluid">
                         </td>
-                        <td>{{ $baris->kategori->nama_kategori }}</td>
-                        <td>{{ $baris['harga'] }}</td>
+                        <td>{!! $baris->deskripsi !!}</td>
                         <td class="aksi text-center">
-                            <a href="{{ route('produk.detail', $baris->id_produk) }}" class="btn btn-primary">Detail</a>
-                            <a href="{{ route('produk.edit', $baris->id_produk) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('produk.destroy', $baris->id_produk) }}" method="POST" style="display:inline-block" class="delete-form">
+                            <!-- <a href="{{ route('tentang_admin.detail', $baris->id_tentang) }}" class="btn btn-primary">Detail</a> -->
+                            <a href="{{ route('tentang_admin.edit', $baris->id_tentang) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('tentang_admin.destroy', $baris->id_tentang) }}" method="POST" style="display:inline-block" class="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="btn btn-danger delete-btn">Hapus</button>
@@ -133,7 +125,7 @@
 
         <!-- Pagination -->
         <div class="d-flex justify-content-center">
-            {{ $tb_produk->onEachSide(1)->links('pagination::bootstrap-4') }}
+            {{ $tb_tentang->onEachSide(1)->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>
@@ -142,10 +134,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    // Menggunakan SweetAlert2 untuk konfirmasi hapus data
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function(event) {
-            const form = this.closest('form'); // Dapatkan form terdekat
+            const form = this.closest('form');
 
             Swal.fire({
                 title: 'Apakah Anda yakin?',
@@ -158,7 +149,7 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    form.submit(); // Kirim form setelah konfirmasi
+                    form.submit();
                     Swal.fire(
                         'Terhapus!',
                         'Data Anda telah dihapus.',
@@ -167,6 +158,6 @@
                 }
             });
         });
-    }); 
+    });
 </script>
 @endsection
