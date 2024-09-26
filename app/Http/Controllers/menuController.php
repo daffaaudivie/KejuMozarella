@@ -41,6 +41,7 @@ class MenuController extends Controller
             'deskripsi_menu' => 'nullable|required|string',
             'resep' => 'nullable|string',
             'langkah_pembuatan' => 'nullable|string',
+            'harga' => 'required|numeric',
         ]);
 
         // Proses upload foto
@@ -57,6 +58,7 @@ class MenuController extends Controller
             'deskripsi_menu' => $request->deskripsi_menu,
             'resep' => $request->resep,
             'langkah_pembuatan' => $request->langkah_pembuatan,
+            'harga' => $request->harga,
         ]);
 
         return redirect()->route('menu.index')->with('success', 'Berhasil Menyimpan Data');
@@ -79,6 +81,7 @@ public function update(Request $request, $id_menu)
         'deskripsi_menu' => 'required|string',
         'resep' => 'required|string',
         'langkah_pembuatan' => 'required|string',
+        'harga' => 'required|numeric',
     ]);
 
     $menu = Menu::where('id_menu', $id_menu)->firstOrFail();
@@ -103,6 +106,7 @@ public function update(Request $request, $id_menu)
         'deskripsi_menu' => $request->deskripsi_menu,
         'resep' => $request->resep,
         'langkah_pembuatan' => $request->langkah_pembuatan,
+        'harga' => $request->harga,
     ]);
 
     return redirect()->route('menu.index')->with('success', 'Berhasil Mengupdate Data');

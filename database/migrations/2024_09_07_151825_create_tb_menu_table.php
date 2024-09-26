@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('deskripsi_menu');      
             $table->text('resep');              
             $table->text('langkah_pembuatan');   
+            $table->text('harga');
             $table->timestamps();  
         });
     }

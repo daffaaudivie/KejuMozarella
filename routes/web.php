@@ -65,6 +65,10 @@ Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk
 Route::resource('produk', ProdukController::class);
 Route::get('/produk/{id_produk}/detail', [ProdukController::class, 'detail'])->name('produk.detail');
 
+//landing
+Route::get('/produksi', [LandingpageController::class, 'produksi'])->name('produk.produksi');
+Route::get('/kreasi', [LandingpageController::class, 'item'])->name('kreasi.item');
+
 // PesanPageAdmin
 Route::get('/pesan', [PesanController::class, 'index']);
 Route::get('/pesan/create', [PesanController::class, 'create'])->name('pesan.create');
@@ -76,6 +80,7 @@ Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
 Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
 Route::get('/dashboard/detailProduk/{id}', [LandingpageController::class, 'detailProduk']);
+// Route::get('/dashboard/Produksi/detailProduk{id}', [LandingpageController::class, 'detailProduk']);
 Route::get('/dashboard_admin', [LandingpageController::class, 'dashboard_admin']);
 
 // Dashboard Admin Page
