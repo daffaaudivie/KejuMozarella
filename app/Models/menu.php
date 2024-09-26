@@ -14,6 +14,7 @@ class Menu extends Model
         'deskripsi_menu',
         'resep',
         'langkah_pembuatan',
+        'harga',
     ];
     public $timestamps = false;
     protected $primaryKey = 'id_menu';

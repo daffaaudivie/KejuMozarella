@@ -21,31 +21,36 @@
     z-index: 1; /* Pastikan overlay berada di atas gambar */
 }
 
-.bg-image-overlay > * {
-    position: relative;
-    z-index: 2; /* Konten yang berada di atas overlay */
-}
-    /* Memastikan teks berada di atas overlay */
+    .bg-image-overlay > * {
+        position: relative;
+        z-index: 2; /* Konten yang berada di atas overlay */
+    }
+    
     .bg-image-overlay .card-body {
         position: relative;
         z-index: 2;
     }
 
-    /* Padding dan ukuran gambar di kolom kanan */
     .col-md-6 img {
         width: 100%; /* Menyesuaikan lebar gambar */
         padding: 100px; /* Tambahkan padding sesuai keinginan untuk memberi jarak */
     }
     .container { 
         background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         padding: 20px;
         max-width: 400px;
-        margin: 40px auto;
+        margin: 5px;
     }
     .container p{
         padding-left: 30px;
+    }
+
+    .image-fluid{
+        max-width: 100%;
+        height: 480px !important;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 </style>
 
@@ -62,7 +67,7 @@
         </div>
         <!-- Kolom Kanan untuk Gambar -->
         <div class="col-md-6 p-4">
-            <img src="{{ asset('storage/' . $menus->foto_menu) }}" class="img-fluid" alt="{{ $menus->nama_menu }}">
+            <img src="{{ asset('storage/' . $menus->foto_menu) }}" class="image-fluid" alt="{{ $menus->nama_menu }}">
         </div>
     </div>
 </div>
