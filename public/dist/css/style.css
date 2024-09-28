@@ -772,7 +772,6 @@ img {
     transform: translateY(0);
 }
 
-<<<<<<< HEAD
 .pagination {
     justify-content: center; /* Mengatur pagination berada di tengah */
 }
@@ -792,7 +791,7 @@ img {
 
 
 
-=======
+
 /* produk dashboard */
 .container-produk {
     display: flex;
@@ -1040,7 +1039,6 @@ img {
         transform: translateX(0);
     }
 }
->>>>>>> 31aa0720fc13152ddd7d63ce4ce72e90d3a93333
 
 /* Styling dasar */
 .bottom-hasil {

@@ -1,19 +1,21 @@
 <?php
-    namespace App\Http\Controllers;
 
-    use Illuminate\Support\Facades\DB;
-    use Illuminate\Http\Request;
+namespace App\Http\Controllers;
 
-    class DashboardController extends Controller
+use App\Models\Produk;
+use App\Models\Menu;
+use App\Models\Pesan;
+
+class DashboardController extends Controller
+{
+    public function index()
     {
-        public function index()
-        {
-        
-            $menuCount = DB::table('tb_menu')->count();
-            $produkCount = DB::table('tb_produk')->count();
-            $pesanCount = DB::table('tb_pesan')->count();
+        // Menghitung jumlah data di setiap tabel
+        $totalProduk = Produk::count();
+        $totalMenu = Menu::count();
+        $totalPesan = Pesan::count();
 
-            // Mengirimkan data ke view
-            return view('dashboard_admin', compact('menuCount', 'produkCount', 'pesanCount'));
-        }
+        // Mengirim data ke view
+        return view('dashboard_admin', compact('totalProduk', 'totalMenu', 'totalPesan'));
     }
+}

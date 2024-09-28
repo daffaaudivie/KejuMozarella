@@ -25,18 +25,15 @@ Route::get('/', function () {
     return view('dashboard_admin');
 })->middleware('auth');
 
-// Login
+// Login Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
 
-// Register
+// Register Routes
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
 
-// LandingPageAdmin
-Route::get('/landingpage', [LandingpageController::class, 'index']);
-Route::get('/landingpage/create', [LandingpageController::class, 'create'])->name('landingpage.create');
-Route::get('/landingpage/edit/{id}', [LandingpageController::class, 'edit'])->name('landingpage.edit');
+// Landing Page Admin
 Route::resource('landingpage', LandingpageController::class);
 
 // Tentang (Untuk halaman dashboard)
@@ -44,31 +41,23 @@ Route::get('/tentang', function () {
     return view('tentang');
 });
 
-// Tentang Admin (Untuk halaman admin)
-Route::get('/tentang_admin', [TentangController::class, 'index'])->name('tentang_admin.index');
-Route::get('/tentang_admin/create', [TentangController::class, 'create'])->name('tentang_admin.create');
-Route::get('/tentang_admin/edit/{id}', [TentangController::class, 'edit'])->name('tentang_admin.edit');
+Route::get('/pembelian', function () {
+    return view('pembelian');
+});
+
+// Tentang Admin
 Route::resource('tentang_admin', TentangController::class);
 Route::get('/tentang_admin/{id_tentang}/detail', [TentangController::class, 'detail'])->name('tentang_admin.detail');
 
-// MenuAdmin
-Route::get('/menu', [MenuController::class, 'index']);
-Route::get('/menu/create', [MenuController::class, 'create'])->name('menu.create');
-Route::get('/menu/edit/{id}', [MenuController::class, 'edit'])->name('menu.edit');
+// Menu Admin
 Route::resource('menu', MenuController::class);
 Route::get('/menu/{id_menu}/detail', [MenuController::class, 'detail'])->name('menu.detail');
 
-// ProdukPageAdmin
-Route::get('/produk', [ProdukController::class, 'index']);
-Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk.create');
-Route::get('/produk/edit/{id}', [ProdukController::class, 'edit'])->name('produk.edit');
+// Produk Admin
 Route::resource('produk', ProdukController::class);
 Route::get('/produk/{id_produk}/detail', [ProdukController::class, 'detail'])->name('produk.detail');
 
-// PesanPageAdmin
-Route::get('/pesan', [PesanController::class, 'index']);
-Route::get('/pesan/create', [PesanController::class, 'create'])->name('pesan.create');
-Route::get('/pesan/edit/{id}', [PesanController::class, 'edit'])->name('pesan.edit');
+// Pesan Admin
 Route::resource('pesan', PesanController::class);
 Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name('pesan.detail');
 
@@ -76,15 +65,9 @@ Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
 Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
 Route::get('/dashboard/detailProduk/{id}', [LandingpageController::class, 'detailProduk']);
-Route::get('/dashboard_admin', [LandingpageController::class, 'dashboard_admin']);
 
-// Dashboard Admin Page
-Route::get('/dashboard-admin', [DashboardController::class, 'index'])->name('dashboard.admin');
+// Dashboard Admin Page (Single Route)
+Route::get('/dashboard_admin', [DashboardController::class, 'index'])->name('dashboard.admin')->middleware('auth');
 
 // Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
-
-// Fallback Dashboard Admin View
-Route::get('/dashboard_admin', function () {
-    return view('dashboard_admin');
-});
