@@ -57,6 +57,14 @@ Route::get('/menu/{id_menu}/detail', [MenuController::class, 'detail'])->name('m
 Route::resource('produk', ProdukController::class);
 Route::get('/produk/{id_produk}/detail', [ProdukController::class, 'detail'])->name('produk.detail');
 
+//landing
+Route::get('/produksi', [LandingpageController::class, 'produksi'])->name('produk.produksi');
+Route::get('/kreasi', [LandingpageController::class, 'item'])->name('kreasi.item');
+
+//landing
+Route::get('/produksi', [LandingpageController::class, 'produksi'])->name('produk.produksi');
+Route::get('/kreasi', [LandingpageController::class, 'item'])->name('kreasi.item');
+
 // Pesan Admin
 Route::resource('pesan', PesanController::class);
 Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name('pesan.detail');
@@ -65,6 +73,7 @@ Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
 Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
 Route::get('/dashboard/detailProduk/{id}', [LandingpageController::class, 'detailProduk']);
+// Route::get('/dashboard/Produksi/detailProduk{id}', [LandingpageController::class, 'detailProduk']);
 
 // Dashboard Admin Page (Single Route)
 Route::get('/dashboard_admin', [DashboardController::class, 'index'])->name('dashboard.admin')->middleware('auth');

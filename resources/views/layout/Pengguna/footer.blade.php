@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer text-white py-4">
+<footer class="footer text-white py-4 bg-dark">
     <div class="container-footer">
         <div class="row-footer">
             <!-- Kolom pertama: Deskripsi Perusahaan -->

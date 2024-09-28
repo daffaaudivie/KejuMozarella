@@ -160,4 +160,13 @@ namespace App\Http\Controllers;
             return view('produk.detail_produk', compact('produk'));
         }
 
+        public function produksi($id_produk)
+        {
+            $produk = Produk::findOrFail($id_produk);
+
+            return view('produk.detail_produk', compact('produk'));
+        }
+
     }
+
+

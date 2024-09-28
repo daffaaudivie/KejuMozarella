@@ -42,13 +42,12 @@
             <div class="container-produk">
                 <div class="row-produk">
                     @foreach($produks as $produk)
-                    <div class="tampilan col-md-6 mb-4">
+                    <div class="tampilan col-card">
                         <a href="{{ url('/dashboard/detailProduk', $produk->id_produk) }}" class="text-decoration-none">
                             <div class="card-produk bg-dark text-white">
                                 <img src="{{ asset('storage/' . $produk->foto_produk) }}" class="produk-img" alt="{{ $produk->nama_produk }}">
                                 <div class="produk-img-overlay d-flex flex-column justify-content-end">
                                     <h5 class="produk-title">{{ $produk->nama_produk }}</h5>
-                                    <p class="produk-text">{{ $produk->deskripsi_produk }}</p>
                                 </div>
                             </div>
                         </a>

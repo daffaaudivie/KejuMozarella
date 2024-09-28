@@ -9,58 +9,42 @@ use App\Models\Produk;
 
 class LandingpageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $tb_slider = Landingpage::all();
-        
         return view('landingpage.landingpage', compact('tb_slider'));
-
     }
-
-
 
     public function create()
     {
         return view('landingpage.create_landingpage');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'foto_slider' => 'required|image|max:2048',
         ]);
-    
+
         if ($request->hasFile('foto_slider')) {
             $imagePath = $request->file('foto_slider')->store('sliders', 'public');
-    
+
             Landingpage::create([
                 'foto_slider' => $imagePath,
             ]);
-    
+
             return redirect()->route('landingpage.index')->with('success', 'Berhasil Menyimpan Data');
         }
-    
+
         return back()->withErrors('Gagal mengunggah gambar.');
     }
-    
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id)
     {
         $landingpage = Landingpage::findOrFail($id);
         return view('landingpage.edit_landingpage', compact('landingpage'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -79,28 +63,26 @@ class LandingpageController extends Controller
         return redirect()->route('landingpage.index')->with('success', 'Berhasil Mengupdate Data');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id_slider)
+    public function destroy($id)
     {
-        $landingpage = Landingpage::findOrFail($id_slider);
-        $landingpage->delete(); 
+        $landingpage = Landingpage::findOrFail($id);
+        $landingpage->delete();
 
         return redirect()->route('landingpage.index')->with('success', 'Berhasil Menghapus Data');
     }
 
-    /**
-     * Display the landing page view.
-     */
     public function showLandingPage()
     {
-        // Assuming you want to show the first slider image in coba.blade.php
-        $tb_slider = Landingpage::first();
-        $menus = Menu::take(5)->get();
-        $produks = Produk::all();
-        return view('dashboard  ', compact('tb_slider','menus', 'produks'));
+    $tb_slider = Landingpage::first();
+    $menus = Menu::take(5)->get();
+    $produks = Produk::all();
+    
+    // Definisikan variabel $produksi jika ingin tetap menggunakannya
+    $produksi = Produk::all();  // Atau query lain yang sesuai dengan kebutuhan Anda
+
+    return view('dashboard', compact('tb_slider', 'menus', 'produks', 'produksi'));  // Tambahkan 'produksi' di sini
     }
+
 
     public function detailMenu($id)
     {
@@ -114,5 +96,17 @@ class LandingpageController extends Controller
         return view('hasil', compact('produk'));
     }
 
+    public function produksi()
+    {
+        $produksi = Produk::all();
+        return view('produksi', compact('produksi'));
+    }
+
+    public function item()
+    {
+        $items = Menu::all();
+        return view('kreasi', compact('items'));
+    }
 
 }
+
