@@ -50,13 +50,13 @@
                     </div>
                 </div>
 
-                {{-- harga --}}
+                <!-- {{-- harga --}}
                 <div class="form-group row">
                     <label for="langkah_pembuatan" class="col-md-12 col-form-label text-md-start">Harga</label>
                     <div class="col-md-12">
                         <textarea class="form-control" id="harga" name="harga" required></textarea>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Button Simpan -->
                 <div class="form-group">

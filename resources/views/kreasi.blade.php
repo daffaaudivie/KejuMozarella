@@ -71,8 +71,8 @@
             <div class="menu-item" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                 <img src="{{ asset('storage/' . $item->foto_menu) }}" alt="{{ $item->nama_menu }}">
                 <h3>{{ $item->nama_menu }}</h3>
-                <p>{{ Str::limit($item->resep, 100) }}</p>
-                <span class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
+                <p>{!! Str::limit( $item->deskripsi_menu, 100 ) !!}</p>
+                <!-- <span class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</span> -->
                 <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#menuModal{{ $item->id_menu }}">
                     Lihat Detail
                 </button>
@@ -90,10 +90,12 @@
                         </div>
                         <div class="modal-body">
                             <img src="{{ asset('storage/' . $item->foto_menu) }}" alt="{{ $item->nama_menu }}" class="img-fluid mb-3">
+                            <h6>Deskripsi Menu:</h6>
+                            <p>{!! $item->deskripsi_menu !!}</p>
                             <h6>Resep:</h6>
-                            <p>{{ $item->resep }}</p>
+                            <p>{!! $item->resep !!}</p>
                             <h6>Langkah:</h6>
-                            <p>{{ $item->langkah_pembuatan }}</p>
+                            <p>{!! $item->langkah_pembuatan !!}</p>
                             <h6>Harga:</h6>
                             <p class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</p>
                         </div>
