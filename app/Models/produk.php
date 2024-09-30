@@ -14,6 +14,8 @@ class Produk extends Model
         'kode_kategori',
         'harga',
         'deskripsi_produk',
+        'aplikasi',
+        'tekstur',
     ];
     public $timestamps = false;
     protected $primaryKey = 'id_produk';

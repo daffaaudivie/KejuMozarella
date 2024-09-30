@@ -6,11 +6,7 @@
         <div class="hasil col-md-6">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('/produksi')}}">Produk
-
-
-
-                    </a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/produksi')}}">Produk</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $produk->nama_produk }}</li>
                 </ol>
             </nav>
@@ -31,11 +27,16 @@
     </div>
 </div>
 
-        <div class="bottom-hasil">
+<div class="wrapper-bottom-hasil"> <!-- Wrapper untuk meluas ke samping halaman -->
+    <div class="bottom-hasil">
+        <div class="row-bawah">
             <h2>Deskripsi</h2>
             <p>{!! $produk->deskripsi_produk !!}</p>
-            
             <h2>Aplikasi</h2>
-            <p>{{ $produk->aplikasi }}</p>
+            <p>{!! $produk->aplikasi !!}</p>
+            <h2>Tekstur dan Rasa</h2>
+            <p>{!! $produk->tekstur !!}</p>
         </div>
+    </div>
+</div>
 @endsection

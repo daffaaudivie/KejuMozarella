@@ -55,6 +55,20 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="aplikasi" class="col-md-3 col-form-label text-md-start">Aplikasi Produk</label>
+                    <div class="col-md-12">
+                        <textarea class="form-control" id="aplikasi" name="aplikasi" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="tekstur" class="col-md-3 col-form-label text-md-start">Tekstur dan Rasa Produk</label>
+                    <div class="col-md-12">
+                        <textarea class="form-control" id="tekstur" name="tekstur" rows="4" required></textarea>
+                    </div>
+                </div>
+
                 <!-- Button Simpan -->
                 <div class="form-group row">
                     <div class="col-md-12 text-center">
@@ -78,7 +92,7 @@
 <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script>
     tinymce.init({
-        selector: 'textarea#deskripsi_produk',
+        selector: 'textarea#deskripsi_produk, textarea#aplikasi, textarea#tekstur',
         plugins: 'code table lists link image preview',
         toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table | link image preview',
         menubar: false,
@@ -92,7 +106,7 @@
     });
 
     document.getElementById('myForm').addEventListener('submit', function (event) {
-        tinymce.triggerSave(); // Sync the TinyMCE content before submitting the form
+    tinymce.triggerSave(); // Sync the TinyMCE content before submitting the form
     });
 
     document.addEventListener('DOMContentLoaded', function () {

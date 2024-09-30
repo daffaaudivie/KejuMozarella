@@ -14,7 +14,7 @@ class MenuController extends Controller
     // Jika ada pencarian, filter berdasarkan nama menu
     $tb_menu = Menu::when($search, function($query, $search) {
         return $query->where('nama_menu', 'like', '%' . $search . '%');
-    })->paginate(5); // Batas 10 item per halaman
+    })->paginate(5); 
 
     return view('menu.menu', compact('tb_menu', 'search'));
     }

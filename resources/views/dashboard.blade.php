@@ -36,26 +36,28 @@
             </div>       
         </section>
 
-{{-- produk kami --}}
-    <h2 class="text-center mt-15">Produk Kami</h2>
-        <p class="text-kita">Kini Tidak Hanya Keju Keahlian Khas KUB juga tercermin dalam kategori produk lainnya.</p>
-            <div class="container-produk">
-                <div class="row-produk">
-                    @foreach($produks as $produk)
-                    <div class="tampilan col-card">
-                        <a href="{{ url('/dashboard/detailProduk', $produk->id_produk) }}" class="text-decoration-none">
-                            <div class="card-produk bg-dark text-white">
-                                <img src="{{ asset('storage/' . $produk->foto_produk) }}" class="produk-img" alt="{{ $produk->nama_produk }}">
-                                <div class="produk-img-overlay d-flex flex-column justify-content-end">
-                                    <h5 class="produk-title">{{ $produk->nama_produk }}</h5>
-                                </div>
-                            </div>
-                        </a>
+        <h2 class="text-center mt-15">Produk Kami</h2>
+<p class="text-kita">Kini Tidak Hanya Keju Keahlian Khas KUB juga tercermin dalam kategori produk lainnya.</p>
+<div class="container-produk">
+    <div class="row-produk">
+        @foreach($produks as $produk)
+        <div class="tampilan col-card">
+            <a href="{{ url('/dashboard/detailProduk', $produk->id_produk) }}" class="text-decoration-none">
+                <div class="card-produk bg-dark text-white">
+                    <img src="{{ asset('storage/' . $produk->foto_produk) }}" class="produk-img" alt="{{ $produk->nama_produk }}">
+                    <div class="produk-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="produk-title">{{ $produk->nama_produk }}</h5>
                     </div>
-                    @endforeach
                 </div>
-            </div>
-{{-- end produk kami --}}
+            </a>
+        </div>
+        @endforeach
+    </div>
+</div>
+<div class="text-center mt-4">
+    <a href="{{ url('/produksi') }}" class="btn btn-warning">Lihat Semua Produk </a>
+</div>
+
 
 
 <!-- Kreasi Menu -->
@@ -76,6 +78,10 @@
         @endforeach
         </div>
     </div>
+    <div class="text-center mt-4">
+    <a href="{{ url('/kreasi') }}" class="btn btn-warning">Lihat Selengkapnya</a>
+    </div>
+
 
     {{-- <br><br>
     <div class="pemisah">

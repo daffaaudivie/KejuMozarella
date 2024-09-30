@@ -868,19 +868,22 @@ img {
 
 
 
-=======
 /* produk dashboard */
 .container-produk {
     display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
-    padding: 10px;
+    padding: 0px;
 }
 
 .row-produk {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+    gap: 10px;
 }
 
 .tampilan {
@@ -993,7 +996,7 @@ img {
     align-items: center;
     padding-left: 70px;
     padding-top: 20px;
-    background-color: #fff;
+    background-color: rgb(236 234 228);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -1003,6 +1006,23 @@ img {
     flex: 1;
     padding: 40px;
 }
+
+/* Mengubah background breadcrumb */
+.breadcrumb {
+    background-color: transparent; 
+    margin-bottom: 10px;
+}
+
+/* Mengubah warna teks breadcrumb */
+.breadcrumb-item a {
+    color: #000; 
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #000; /* Warna hitam untuk item aktif */
+}
+
 
 
 .img-hasil {
@@ -1059,8 +1079,8 @@ img {
     display: center;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
-    border-radius: 60px;
+    margin-right: 0px;
+    border-radius: 80px;
     color: #fff;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -1119,15 +1139,22 @@ img {
 }
 
 /* Styling dasar */
+.wrapper-bottom-hasil {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
 .bottom-hasil {
     font-family: Arial, sans-serif;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
     line-height: 1.6;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.row-bawah {
+    background-color:#FFFFFF;
 }
 
 .bottom-hasil h2 {
@@ -1135,9 +1162,6 @@ img {
     font-size: 24px;
     margin-bottom: 10px;
     color: #333;
-    transform: translateY(-20px);
-    opacity: 0;
-    animation: slideIn 0.8s ease-in-out forwards;
 }
 
 .bottom-hasil p {

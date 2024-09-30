@@ -60,9 +60,11 @@
         <!-- Kolom Kiri untuk Teks dengan Background Gambar -->
         <div class="col-md-6 d-flex align-items-center justify-content-center text-white text-left p-4 ">
            <div>
-                <p class="card-text">RECIPES</p>
-                <h4 class="card-title text-uppercase">{{ $menus->nama_menu }}</h4>
-                <p class="card-text">Deskripsi atau informasi lainnya.</p>
+                <p class="card-text">Deskripsi Atau Informasi Lainya</p>
+                <h4 class="card-title text-uppercase">
+                {!! $menus->deskripsi_menu !!}
+                </h4>
+                <!-- <p class="card-text">Deskripsi atau informasi lainnya.</p> -->
             </div>
         </div>
         <!-- Kolom Kanan untuk Gambar -->
@@ -71,29 +73,20 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col">
             <div class="ingredients">
                 <h2>Ingredients</h2>
                 <hr>
-                <ul>
-                    @foreach(explode("\n", $menus->resep) as $ingredient)
-                        <li>{{ $ingredient }}</li>
-                    @endforeach
-                </ul>
+                {!! $menus->resep !!}
             </div>
         </div>
         <div class="col">
             <div class="instruction">
                 <h2>Instruction</h2>
                 <hr>
-                <ol>
-                    @foreach(explode("\n", $menus->langkah_pembuatan) as $step)
-                        <li>{{ $step }}</li>
-                    @endforeach
-                </ol>
+                {!! $menus->langkah_pembuatan !!}
             </div>
         </div>
     </div>

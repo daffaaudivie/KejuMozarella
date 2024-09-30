@@ -57,6 +57,14 @@
                     <th>Deskripsi Produk</th>
                     <td>{{ $produk->deskripsi_produk }}</td>
                 </tr>
+                <tr>
+                    <th>Aplikasi Produk</th>
+                    <td>{{ $produk->aplikasi }}</td>
+                </tr>
+                <tr>
+                    <th>Tekstur dan Rasa Produk</th>
+                    <td>{{ $produk->tekstur }}</td>
+                </tr>
             </table>
 
             <div class="text-right">

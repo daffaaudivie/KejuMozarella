@@ -83,29 +83,28 @@
                     </a>
                 </li>
                 <li class="nav-item">
-
                     <a class="nav-link" href="{{ url('/landingpage') }}">
-                        <i class="fas fa-home"></i> Landing Page
-
+                        <i class="fas fa-globe"></i> Landing Page
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/tentang_admin') }}">
-
-                    <i class="fas fa-home"></i> Tentang Kami
-
+                        <i class="fas fa-info-circle"></i> Tentang Kami
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/produk') }}">
-                        <i class="fas fa-building"></i> Data Produk
+                        <i class="fas fa-box"></i> Data Produk
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/menu') }}">
-                        <i class="fas fa-address-card"></i> Kreasi Menu
+                        <i class="fas fa-utensils"></i> Kreasi Menu <!-- Ubah menjadi ikon sendok/garpu -->
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pesan ">
-                        <i class="fas fa-address-card"></i> Data Pesan Masuk
+                    <a class="nav-link" href="/pesan">
+                        <i class="fas fa-envelope"></i> Data Pesan Masuk
                     </a>
                 </li>
             </ul>

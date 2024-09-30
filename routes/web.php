@@ -9,21 +9,8 @@ use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TentangController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Dashboard Admin Home
-Route::get('/', function () {
-    return view('dashboard_admin');
-})->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard.admin');
 
 // Login Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -61,10 +48,6 @@ Route::get('/produk/{id_produk}/detail', [ProdukController::class, 'detail'])->n
 Route::get('/produksi', [LandingpageController::class, 'produksi'])->name('produk.produksi');
 Route::get('/kreasi', [LandingpageController::class, 'item'])->name('kreasi.item');
 
-//landing
-Route::get('/produksi', [LandingpageController::class, 'produksi'])->name('produk.produksi');
-Route::get('/kreasi', [LandingpageController::class, 'item'])->name('kreasi.item');
-
 // Pesan Admin
 Route::resource('pesan', PesanController::class);
 Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name('pesan.detail');
@@ -73,7 +56,6 @@ Route::get('/pesan/{id_pesan}/detail', [PesanController::class, 'detail'])->name
 Route::get('/dashboard', [LandingpageController::class, 'showLandingPage']);
 Route::get('/dashboard/detailMenu/{id}', [LandingpageController::class, 'detailMenu']);
 Route::get('/dashboard/detailProduk/{id}', [LandingpageController::class, 'detailProduk']);
-// Route::get('/dashboard/Produksi/detailProduk{id}', [LandingpageController::class, 'detailProduk']);
 
 // Dashboard Admin Page (Single Route)
 Route::get('/dashboard_admin', [DashboardController::class, 'index'])->name('dashboard.admin')->middleware('auth');

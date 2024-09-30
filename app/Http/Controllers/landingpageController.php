@@ -74,8 +74,8 @@ class LandingpageController extends Controller
     public function showLandingPage()
     {
     $tb_slider = Landingpage::first();
-    $menus = Menu::take(5)->get();
-    $produks = Produk::all();
+    $menus = Menu::take(8)->get();
+    $produks = Produk::take(8)->get();
     
     // Definisikan variabel $produksi jika ingin tetap menggunakannya
     $produksi = Produk::all();  // Atau query lain yang sesuai dengan kebutuhan Anda

@@ -96,8 +96,8 @@
                             <p>{!! $item->resep !!}</p>
                             <h6>Langkah:</h6>
                             <p>{!! $item->langkah_pembuatan !!}</p>
-                            <h6>Harga:</h6>
-                            <p class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</p>
+                            <!-- <h6>Harga:</h6>
+                            <p class="price">Rp {{ number_format($item->harga, 0, ',', '.') }}</p> -->
                         </div>
                     </div>
                 </div>
